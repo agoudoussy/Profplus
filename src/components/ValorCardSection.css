@@ -1,0 +1,17 @@
+.valor__card__section{
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+/*RESPONSIVE DESIGN*/
+/*tablette*/
+@media screen  and (min-width:768px) and (max-width:900px){
+
+}
+
+/*mobile*/
+@media screen  and (max-width:368px){
+    .valor__card__section{
+        flex-direction: column;
+    }
+ }

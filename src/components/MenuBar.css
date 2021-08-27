@@ -1,0 +1,191 @@
+header{
+    position:fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Montserrat";
+    box-sizing: border-box;
+    padding:1% 50px;
+    width: 100%;
+    transition: all 0.3s ease-in;
+    height: 60px;
+    /* background-color: #ffff; */
+
+}
+.head__bg__show{
+    background-color: #ffff;
+    transform: scale(1.01);
+    box-shadow: 1px 7px 47px -3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 1px 7px 47px -3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 7px 47px -3px rgba(0,0,0,0.2); 
+    z-index: 1;
+}
+header p{
+    font-family: "Montserrat Thin";
+    /* text-shadow: rgba(22, 22, 22, 0.385) 1px 1px 5px; */
+    color: rgb(255, 153, 0);
+    font-size: 1.5rem;
+}
+.nav__bar header > a{
+    text-decoration: none;
+    color: #f7a000;
+}
+.nav__bar header > a > p > span{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #c98303;
+}
+.nav__link {
+    width: 30%;
+}
+.nav__link ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav__link ul::after{
+    
+}
+.nav__link ul li{
+    list-style: none;
+    box-sizing: border-box;
+    margin-right: 10%; 
+}
+
+.link {
+    text-decoration: none;
+    color:#202020;
+    font-size: calc(10px + 1vmin);
+    font-family: "Montserrat";
+    transition: all 0.2s ease-in;   
+}
+.link:hover{
+    color:#ffa500;
+}
+.head__link_color{
+    color:#202020;
+}
+.toogle__icone{
+    display: none;
+}
+
+/*RESPONSIVE DESIGN*/
+
+/*Mobile*/
+@media screen and (max-width:768px){
+    header{
+        background-color: #ffff;
+    }
+    
+    .nav__link {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:50px;
+        left: -200px;;
+        padding-left: 0;
+        width: 100%;
+        text-align: left;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0);
+        transition: all 0.2s ease-in;
+    }
+     .active{
+        background-color: #ffff;
+        transition: all 0.2s ease-in;
+        left: 0px;
+    }
+    .nav__link ul {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1%; 
+        padding-left: 10%;      
+    }
+    .nav__link ul li{
+        margin-bottom: 2%;
+        margin-right: 2%;
+    }
+    .nav__link ul li:after{
+        content: "";
+        width: 0;
+        height: 3px;
+        display: block;
+        background-color: transparent;
+        transition: width 0.2s ease-in,background-color 0.5s ease-in ;
+    }
+    .nav__link ul li:hover:after{
+        background-color: #ff6f00fc;
+        width: 20%;
+    }
+    .link {
+        color:#000000;
+    }
+    .toogle__icone{
+        display: block;
+        font-size: 15px;
+    }
+    .toogle__icone>i{
+        font-size: 20px;
+    }
+}
+/*Tablette*/
+@media screen and (min-width:768px) and (max-width:900px) {
+    header{
+        background-color: #ffff;
+    }
+    
+    .nav__link {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:50px;
+        left: -200px;;
+        padding-left: 0;
+        width: 100%;
+        text-align: left;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0);
+        opacity: 0;
+        transition: all 0.2s ease-in;
+    }
+     .active{
+        background-color: #ffff;
+        transition: all 0.2s ease-in;
+        opacity: 1;
+        left: 0px;
+    }
+    .nav__link ul {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1%; 
+        padding-left: 10%;      
+    }
+    .nav__link ul li{
+        margin-bottom: 2%;
+        margin-right: 2%;
+    }
+    .nav__link ul li:after{
+        content: "";
+        width: 0;
+        height: 3px;
+        display: block;
+        background-color: transparent;
+        transition: width 0.2s ease-in,background-color 0.5s ease-in ;
+    }
+    .nav__link ul li:hover:after{
+        background-color: #ff6f00fc;
+        width: 10%;
+    }
+    .link {
+        color:#000000;
+    }
+    .toogle__icone{
+        display: block;
+    }
+    .toogle__icone>i{
+        font-size: 30px;
+    }
+}
+
+/*Desktop*/
+

@@ -1,0 +1,28 @@
+.detail__right{
+    width: 70%;
+    text-align: left;
+}
+.detail__right .presentation{
+    background-color: #ffff;
+    padding: 2% 3%;
+    border-radius: 15px;
+    margin-bottom: 2%;
+}
+.detail__right .curriculum{
+    background-color: #ffff;
+    padding: 2% 3%;
+    border-radius: 15px;
+}
+.detail__right .curriculum .top-right{
+    display: flex;
+    align-items: center;
+}
+.detail__right .curriculum .top-right i{
+    margin-right: 15px;
+}
+.video{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin:2% 0;
+}

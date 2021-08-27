@@ -1,0 +1,192 @@
+.center__content {
+  background-color: #00000026;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(13px + 2vmin);
+color: white;
+background-size: cover;
+width: 100%;
+object-fit: contain;
+margin: 0;
+padding: 0;
+z-index: 1;
+background-blend-mode: overlay;
+  }
+  .center__content h1{
+    font-size: calc(35px + 0.2vmin);
+    font-weight: bold;
+  }
+  .center__content::after{
+    content: "";
+    background-image: url('../images/Photographie.JPG');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+  }
+  .center__content p{
+      text-align: center;
+  }
+  .center__content .search__bar{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color:black;
+      padding: 1% 4%;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 5px;
+      width: 60%;
+      margin: 0;
+      padding: 12px;
+  }
+  .center__content .search__bar .inputBar i{
+    color: #3a3939;
+    font-size: 20px;
+    margin-right: 1%;
+}
+  .center__content .search__bar .inputBar input{
+    border: none;
+    background: none;
+    font-size: 18px;
+    margin:1%;
+    width: 60%;
+  }
+  .center__content .search__bar .inputBar{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "poppins";      
+  }
+  .center__content .search__bar .inputBar::after{
+    content: "";
+    border-right:1px solid #838383f5;
+      margin-right: 2%;
+      height: 35px;
+  }
+  .center__content .search__bar .inputBar input{
+    outline:none;
+  }
+  .center__content a{
+      border:none;
+      padding: 4%;
+      background:#ffa200;
+      color: #fff;
+      border-radius: 5px;
+      font-family: "Montserrat";    
+      transition: all 0.3s ease-in;  
+      margin: 0;
+      padding: 1%;
+      font-size: 1rem;
+      margin-right: 4.5%;
+      text-decoration: none;
+  }
+  .center__content a:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+    color: #ffff;
+  }
+  .center__content a:active{   
+    background:#dd9a27;
+  }
+  /* .border-right{
+      border-right:1px solid #838383;
+      margin-right: 2%;
+      height: 35px;
+  } */
+  .contact{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      background-color: #ffff;
+      opacity: 0.5;
+      padding: 1.3% 8%;
+      border-radius: 50px;
+      margin:2% 0;
+      font-size: 30px;
+  }
+ 
+  .contact:after{
+        content: "+224 621 11 11 11";
+        color: black;
+        font-family: "Montserrat semiBold";
+        opacity: 1;
+        text-align: center;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+  }
+  .contact i{
+      color:#000000;
+      margin-right: 10px;
+      font-size: 35px;
+  }
+
+  /*RESPONSIVE DESIGN*/
+  @media screen and (min-width:280px) and (max-width:950px){
+   .center__content .search__bar{
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     width: 80%;
+     padding-left: 0;
+     padding-right: 0;
+     background-color: transparent;
+     color: #ffff;
+   }
+   .center__content .search__bar .inputBar{
+     width: 100%;
+     justify-content: flex-start;
+     margin-left: 5%;
+     border-bottom: 1px solid rgb(248, 215, 153);
+     padding:2% 0;
+     margin-bottom: 1%;
+   }
+   .center__content .search__bar .inputBar input{
+    color:#ffffff;
+   }
+   .center__content .search__bar .inputBar i{
+     color: rgb(250, 188, 72);
+   }
+   .search__bar a {
+     margin:2% 0;
+     border-radius: 20px;
+     padding:3%;
+     font-weight: 500px;
+   }
+    /* .border-right{
+     border-right: none;
+   } */
+   .center__content .search__bar .inputBar::after{
+     height: 0;
+  }
+   .contact i{
+     font-size: 30px;
+   }
+   
+}
+
+/*Tablette*/
+@media screen and (min-width:768px) and (max-width:822px) {
+  .center__content .search__bar .input__bar input{
+    font-size: 13px;
+   }
+   .center__content .search__bar .input__bar i{
+    font-size: 13px;
+    margin-left: 7%;
+   }
+   .search__bar a{
+     margin-right:4px;
+
+   }
+  
+}

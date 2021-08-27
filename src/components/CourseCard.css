@@ -1,0 +1,59 @@
+.cours_card{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 200px;
+    height: 250px; 
+    background-color: #ffff;
+    border-radius: 15px;
+    padding: 0 15px;
+    padding-top: 10px ;
+    margin-bottom: 3%;
+    border: 1px solid rgba(252, 184, 59, 0); 
+    transition: all 0.2s ease-in;
+}
+.cours_card:hover {
+    border: 1px solid #ffa600; 
+}
+.cours_card h3{
+    text-align: left;
+    margin: 0;
+    font-size: 1.5rem;
+    color: rgb(80, 59, 23);
+   
+}
+.cours_card .list {
+    text-align: left;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin-top: 2%;
+    transition: all 0.3s ease-in;
+}
+.cours_card .list:hover{
+    margin-left: 10px;
+}
+.cours_card .list > li > a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease-in;
+}
+.cours_card .list li{
+    margin-bottom: 20px;
+}
+.cours_card .list>li>a:hover{
+   color: rgb(252, 127, 45);
+}
+/*Tablette*/
+
+/*Mobile*/
+@media screen and (max-width:368px)  {
+    .cours_card h3{
+       text-align: center;
+       border-bottom: 1px solid rgb(119, 119, 119);
+       margin-bottom: 10px;
+    }
+    .cours_card .list{
+        text-align: center;
+    }
+}

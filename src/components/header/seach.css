@@ -1,0 +1,128 @@
+.search-box {
+  border: 1px solid #ffffffab;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  padding-top: 6%;
+}
+.search{
+  display: flex;
+  align-items: center;
+}
+.search i {
+  margin: 0 10px;
+  color: #3b3b3b;
+}
+input {
+  padding: 12px 0;
+  color: #000;
+  border: none;
+  border-right: 1px solid #858585;
+}
+ input[placeholder="niveau"]{
+   border-right: none;
+ }
+input:focus{
+  outline: none;
+  border:none;
+}
+
+.search-box button{
+  padding: 12px;
+  margin-left: 15px;
+  background: #f38d26;
+  border-radius: 10px;
+  border:none;
+  color: #fff;
+  border-radius: 5px;
+}
+.person {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: fantasy;
+  margin: 30px;
+}
+.container {
+  text-align: center;
+  min-height: 45vh;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-bottom: 30px;
+  
+}
+.card__section p{
+  font-family: "Montserrat semiBold";
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+.card__section p span{
+  color: orange;
+}
+
+.contain {
+  margin-bottom: 50px;
+}
+span {
+  color: #f38c26e1;
+}
+.nav-link:hover {
+  color: #f38c26e1 !important;
+}
+.barreV {
+  border: 1px solid #36363636;
+  width: 70%;
+  margin: auto;
+}
+
+@media (min-width: 280px) and (max-width: 950px){
+ .search-box{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 15%;
+   width: 75%;
+ }
+ .search{
+   width: 90%;
+   border-bottom: 1px solid #333333;
+   padding:1% 0;
+   z-index: 2;
+ }
+ input{
+  /* margin-bottom: 14px; */
+  border-right: none;
+ }
+ .search-box button{
+   margin-top: 15px;
+ }
+ .card{
+   width: 10rem !important;
+ }
+ .navbar-brand{
+   margin: 5px 0 !important;
+ }
+}
+
+/* @media screen and (max-width:765px){
+   .search-box {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+    padding-top: 15%;
+   }
+   input{
+    border-bottom: 1px solid #000000a6;
+    margin-bottom: 14px;
+    border-right: none;
+   } 
+} */

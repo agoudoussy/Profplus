@@ -1,0 +1,16 @@
+ /*RESPONSIVE DESIGN*/
+ @media (min-width: 320px) {
+    .search__bar{
+        display: grid;
+    }
+  }
+  @media (min-width: 1025px){
+    .search__bar{
+        display: flex;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .search__bar{
+        display: flex;
+    }
+  }
