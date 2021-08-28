@@ -1,12 +1,12 @@
 import React from 'react'
 import Sidebar from "../components/adminComponents/Sidebar";
-import content from '../components/adminComponents/content';
+import Content from '../components/adminComponents/Content';
 
 function Admin() {
   return (
     <div className="admin">
       <Sidebar />
-      <content />
+      <Content />
     </div>
   );
 }

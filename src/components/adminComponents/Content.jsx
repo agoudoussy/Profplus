@@ -1,6 +1,6 @@
 import React from 'react'
 
-function content() {
+function Content() {
     return (
         <div>
             <div className="personal__info">
@@ -54,4 +54,4 @@ function content() {
     )
 }
 
-export default content
+export default Content;
