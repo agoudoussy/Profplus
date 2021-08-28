@@ -1,13 +1,14 @@
-import React from 'react'
+import React from "react";
 import Sidebar from "../components/adminComponents/Sidebar";
-import content from '../components/adminComponents/content';
+import Content from "../components/adminComponents/Content";
+import "./Admin.css"
 
 function Admin() {
   return (
     <div className="admin">
       <Sidebar />
-      <content/>
+      <Content />
     </div>
   );
 }
-  export default Admin;
+export default Admin;

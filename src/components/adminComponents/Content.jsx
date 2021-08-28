@@ -1,8 +1,11 @@
 import React from "react";
+import AdminHead from "./AdminHead";
+import './Content.css'
 
 function content() {
   return (
-    <div>
+    <div className="admin-content">
+      <AdminHead />
       <div className="personal__info">
         <h4>Information Personnelle</h4>
         <div>

@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import ProfDetails from "./pages/ProfDetail";
 import SearchPage from "./pages/SearchPage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./components/adminComponents/Sidebar";
+import Admin from './pages/Admin';
 function App() {
   return (
     <Router>
@@ -13,7 +13,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/cour" exact component={ProfDetails} />
           <Route path="/search" exact component={SearchPage} />
-          <Route path="/admin" exact component={Sidebar}/>
+          <Route path="/admin" exact component={Admin}/>
         </Switch>
       </div>
     </Router>

@@ -5,8 +5,19 @@
     background-color: orange;
     min-height: 100vh;
 }
-.sidebar__top{
+.sidebar__link ul li{
     color: white;
-    text-decoration: none;
     list-style: none;
+    padding: 5% 4%;
+}
+.sidebar__link ul {
+    padding:0;
+}
+.sidebar__link ul li:hover{
+    background-color: rgb(233, 152, 3);
+}
+.sidebar__link ul li a{
+    text-decoration: none;
+    color: #ffff;
+    font-size: 1.5rem;
 }
