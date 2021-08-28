@@ -3,7 +3,7 @@ import "./Sidebar.css";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <div className="sidbar__top">
+      <div className="sidebar__top">
         <h1>
           PROF<span>PLUS</span>
         </h1>

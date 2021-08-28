@@ -1,0 +1,12 @@
+.sidebar{
+    margin:0;
+    text-align: left;
+    width: 25%;
+    background-color: orange;
+    min-height: 100vh;
+}
+.sidebar__top{
+    color: white;
+    text-decoration: none;
+    list-style: none;
+}
