@@ -3,4 +3,61 @@
 }
 .personal__info{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.generalB{
+    border: 1px solid #141414a4;
+    border-radius: 6px;
+}
+.profile{
+    padding: 20px 30px;
+    text-align: left;
+}
+
+.botumValidate{
+    padding: 12px;
+    border-radius: 14px;
+    width: 13%;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: aqua;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+.profosional_info{
+    border: 1px solid #141414a4;
+    border-radius: 6px;
+    margin-top: 15px;
+
+}
+
+.residence_info{
+    border: 1px solid #141414a4;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.title_brand{
+    width: 100%;
+    text-align: left;
+    background-color: aqua;
+}
+
+.inputSize{
+    padding: 1rem 5rem;
+}
+.inputSize input {
+    padding: 1rem;
+    width: 100%;
+}
+.text__area{
+    padding: 1rem 4rem;
+}
+.text__area textarea{
+    width: 100%;
+    resize: none;
+    height: 200px;
 }
