@@ -63,6 +63,13 @@
     width: 100%;
     border:1px solid rgba(0, 0, 0, 0.233);
     border-radius:5px;
+    transition:all 0.25s ease-in ;
+}
+.inputSize input:focus{
+    border: 1px solid rgb(46, 179, 231);
+    -webkit-box-shadow: -1px 0px 1px 5px rgba(57,208,155,0.55); 
+box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
+    
 }
 .inputSize input::placeholder{
     color:rgba(128, 128, 128, 0.555);
