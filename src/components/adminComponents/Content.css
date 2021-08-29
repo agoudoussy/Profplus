@@ -7,15 +7,21 @@
     justify-content: space-between;
     
 }
+.prof-content{
+    margin:3%;
+}
 .generalB{
-    border: 1px solid #141414a4;
+    border: 1px solid #c0c0c0a4;
     border-radius: 6px;
 }
 .profile{
     padding: 20px 30px;
     text-align: left;
 }
-
+.profile input[type="file"]{
+    background-color:none;
+    border:none;
+}
 .botumValidate{
     padding: 12px;
     border-radius: 14px;
@@ -43,16 +49,25 @@
 .title_brand{
     width: 100%;
     text-align: left;
-    background-color: aqua;
+    background-color: rgb(4, 65, 65);
+    padding:8px 1%;
+    color:#ffff;
+    border-radius:6px 6px 0 0;
 }
 
 .inputSize{
-    padding: 1rem 5rem;
+    padding: 1rem 1rem;
 }
 .inputSize input {
     padding: 1rem;
     width: 100%;
+    border:1px solid rgba(0, 0, 0, 0.233);
+    border-radius:5px;
 }
+.inputSize input::placeholder{
+    color:rgba(128, 128, 128, 0.555);
+}
+
 .text__area{
     padding: 1rem 4rem;
 }
