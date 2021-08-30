@@ -1,6 +1,17 @@
 .admin-content{
     width: 100%;
 }
+.prof-content>h4{
+    padding:1%;
+    background-color: rgb(18, 52, 63);
+    margin-bottom: 2%;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+    color: #ffff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
 .personal__info{
     display: flex;
     flex-wrap: wrap;
@@ -34,14 +45,14 @@
 }
 
 .profosional_info{
-    border: 1px solid #141414a4;
+    border: 1px solid #c0c0c0a4;
     border-radius: 6px;
     margin-top: 15px;
 
 }
 
 .residence_info{
-    border: 1px solid #141414a4;
+    border: 1px solid #c0c0c0a4;
     border-radius: 6px;
     margin-top: 15px;
 }
@@ -68,7 +79,7 @@
 .inputSize input:focus{
     border: 1px solid rgb(46, 179, 231);
     -webkit-box-shadow: -1px 0px 1px 5px rgba(57,208,155,0.55); 
-box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
+     box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
     
 }
 .inputSize input::placeholder{
@@ -82,4 +93,13 @@ box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
     width: 100%;
     resize: none;
     height: 200px;
+    border-radius: 8px;
+    border:1px solid rgb(214, 214, 214);
+    padding:10px;
+    transition: all 0.25s ease-in;
+}
+.text__area textarea:focus{
+    border: 1px solid rgb(46, 179, 231);
+    -webkit-box-shadow: -1px 0px 1px 5px rgba(57,208,155,0.55); 
+     box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
 }
