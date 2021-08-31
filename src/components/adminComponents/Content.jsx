@@ -218,7 +218,7 @@ function Content() {
                 name="honoraire"
                 value={prof.honoraire}
                 onChange={handleChange}
-                placeholder="citation"
+                placeholder="cout Horaire"
               />
             </div>
             <div className="inputSize">
@@ -226,7 +226,7 @@ function Content() {
                 name="citation"
                 value={prof.citation}
                 onChange={handleChange}
-                placeholder="cout Horaire"
+                placeholder="citation"
                 type="text"
               />
             </div>
