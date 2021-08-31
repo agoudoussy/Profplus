@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import AdminHead from "./AdminHead";
 import "./Content.css";
-import { db } from "../../firebaseConfig";
+import { db, storage } from "../../firebaseConfig";
+// import useStorage from "./useStorage";
 
 function Content() {
+  const [file, setFile] = useState("");
+  const [error, setError] = useState("");
+  const types = ["image/jpeg", "image/png"];
+  const [url, setUrl] = useState(null);
+  const [progress, setProgress] = useState(null);
   const [prof, setProf] = useState({
     nom: "",
     prenom: "",
     tel: "",
     email: "",
-    url_photo: "",
+    urlPhoto: "",
     categorie: "",
     libelle: "",
     presentation: "",
@@ -19,7 +25,6 @@ function Content() {
     honoraire: "",
     expYear: "",
   });
-
   //fonction qui ajoute un prof dans la bd firebase
   const addProf = (event) => {
     //supprimer l'action par defaut lors du submit dans le form
@@ -29,7 +34,7 @@ function Content() {
       prenom: prof.prenom,
       tel: prof.tel,
       email: prof.email,
-      url_photo: "",
+      urlPhoto: url,
       categorie: prof.categorie,
       libelle: prof.libelle,
       presentation: prof.presentation,
@@ -44,7 +49,7 @@ function Content() {
       prenom: "",
       tel: "",
       email: "",
-      url_photo: "",
+      urlPhoto: "",
       categorie: "",
       libelle: "",
       presentation: "",
@@ -68,11 +73,51 @@ function Content() {
       };
     });
   };
+
+  function uploadAction(file) {
+    const uploadTask = storage.ref(`images/${file.name}`);
+    uploadTask.put(file).on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(file.name)
+          .getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          });
+      }
+    );
+  }
+
+  //fonction qui gère l'upload d'une image
+  const handleUpload = (event) => {
+    let selectedFile = event.target.files[0];
+    if (selectedFile && types.includes(selectedFile.type)) {
+      setFile(selectedFile);
+      setError("");
+      uploadAction(selectedFile);
+    } else {
+      setFile("");
+      setError("format non supporter");
+    }
+  };
+
   return (
     <div className="admin-content">
       <AdminHead />
       <div className="prof-content">
         <h4>Ajouter un professeur</h4>
+        {error && <div>{error}</div>}
         <form>
           <div className="generalB">
             <div className="personal__info">
@@ -115,7 +160,9 @@ function Content() {
               </div>
             </div>
             <div className="profile">
-              <input name="" value="" onChange={handleChange} type="file" />
+              <input name="urlPhoto" onChange={handleUpload} type="file" id="input-file" />
+              <label for="input-file"> <i></i>Choisir une Image</label>
+              <label name="file-choosen">{file? file.name:'...'}</label>
             </div>
           </div>
           <div className="residence_info">
@@ -129,6 +176,7 @@ function Content() {
                 type="text"
               />
             </div>
+           
             <div className="inputSize">
               <input
                 name="libelle"

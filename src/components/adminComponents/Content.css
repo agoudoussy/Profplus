@@ -29,9 +29,24 @@
     padding: 20px 30px;
     text-align: left;
 }
-.profile input[type="file"]{
-    background-color:none;
-    border:none;
+.profile input#input-file{
+   display: none;
+}
+.profile label[for="input-file"]{
+    background-color: rgb(255, 166, 0);
+    padding:1%;
+    color: #ffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profile label[for="input-file"]:hover{
+    background-color: rgb(245, 180, 59);
+}
+.profile label[for="input-file"]:active{
+    background-color: rgb(182, 119, 2);
+}
+label[name=file-choosen]{
+    padding-left: 1%;
 }
 .botumValidate{
     padding: 12px;
