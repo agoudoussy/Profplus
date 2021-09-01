@@ -8,12 +8,12 @@ function Admin() {
   return (
     <Router>
       <div className="admin">
-        <Sidebar />
+        <Sidebar/>
         <Switch>
-          <Route to="/admin">
+          <Route path="/admin">
               <Content/>
           </Route>
-          <Route to="/admin/prof">
+          <Route path="/prof">
               <Profs/>
           </Route>
           
