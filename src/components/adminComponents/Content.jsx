@@ -16,8 +16,10 @@ function Content() {
     tel: "",
     email: "",
     urlPhoto: "",
-    categorie: "",
-    libelle: "",
+    Commune: "",
+    quartier: "",
+    matiere: "",
+    niveau: "",
     presentation: "",
     expPro: "",
     expSoc: "",
@@ -111,7 +113,9 @@ function Content() {
       setError("format non supporter");
     }
   };
-
+  const handleDrop = (event) => {
+    console.log(event.target.name);
+  };
   return (
     <div className="admin-content">
       <AdminHead />
@@ -160,31 +164,58 @@ function Content() {
               </div>
             </div>
             <div className="profile">
-              <input name="urlPhoto" onChange={handleUpload} type="file" id="input-file" />
-              <label for="input-file"> <i></i>Choisir une Image</label>
-              <label name="file-choosen">{file? file.name:'...'}</label>
+              <input
+                name="urlPhoto"
+                onChange={handleUpload}
+                type="file"
+                id="input-file"
+              />
+              <label for="input-file">
+                <i></i>Choisir une Image
+              </label>
+              <label name="file-choosen">{file ? file.name : "..."}</label>
             </div>
           </div>
           <div className="residence_info">
             <h4 className="title_brand">Information Residentielle</h4>
             <div className="inputSize">
+              <select
+                className="drop-down"
+                name="commune"
+                onChange={handleDrop}
+              >
+                <option value="Dixinn">Dixinn</option>
+                <option value="Kaloum">Kaloum</option>
+                <option value="Matam">Matam</option>
+                <option value="Matoto">Matoto</option>
+                <option value="Ratoma">Ratoma</option>
+              </select>
+            </div>
+
+            <div className="inputSize">
               <input
-                name="categorie"
-                value={prof.categorie}
+                name="quartier"
+                value={prof.libelle}
                 onChange={handleChange}
-                placeholder="categorie"
+                placeholder="Quartier"
                 type="text"
               />
             </div>
-           
+          </div>
+          <div className="pedagogie-info">
+            <h4 className="title_brand">Information Pédagogique</h4>
             <div className="inputSize">
-              <input
-                name="libelle"
-                value={prof.libelle}
-                onChange={handleChange}
-                placeholder="libellé"
-                type="text"
-              />
+              <select className="drop-down" onChange={handleDrop}>
+                <option value="Html/css">Html/css</option>
+                <option value="Html/css">HTMl/css</option>
+              </select>
+            </div>
+            <div className="inputSize">
+              <select className="drop-down" onChange={handleDrop}>
+                <option value="Primaire">Primaire</option>
+                <option value="Collège">Collège</option>
+                <option value="Lycée">Lycée</option>
+              </select>
             </div>
           </div>
           <div className="profosional_info">

@@ -3,7 +3,7 @@
 }
 .prof-content>h4{
     padding:1%;
-    background-color: rgb(18, 52, 63);
+    background-color: rgba(18, 52, 63, 0.767);
     margin-bottom: 2%;
     border-radius: 5px;
     width: 30%;
@@ -75,7 +75,7 @@ label[name=file-choosen]{
 .title_brand{
     width: 100%;
     text-align: left;
-    background-color: rgb(4, 65, 65);
+    background-color: rgba(4, 65, 65, 0.788);
     padding:8px 1%;
     color:#ffff;
     border-radius:6px 6px 0 0;
@@ -84,10 +84,10 @@ label[name=file-choosen]{
 .inputSize{
     padding: 1rem 1rem;
 }
-.inputSize input {
+.inputSize input,select {
     padding: 1rem;
     width: 100%;
-    border:1px solid rgba(0, 0, 0, 0.233);
+    border:1px solid #0000003b;
     border-radius:5px;
     transition:all 0.25s ease-in ;
 }
@@ -97,7 +97,7 @@ label[name=file-choosen]{
      box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
     
 }
-.inputSize input::placeholder{
+.inputSize input,select::placeholder{
     color:rgba(128, 128, 128, 0.555);
 }
 
