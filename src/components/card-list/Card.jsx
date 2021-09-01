@@ -15,7 +15,6 @@ const Card = (props) => {
 
   return (
     <div className="container">
-<<<<<<< HEAD
       {prof.map((profs,i) => (
         <div className="card" style={{ width: "18rem" }} key={i}>
           <img src={profs.urlPhoto} className="card-img-top" alt="img" />
@@ -27,16 +26,6 @@ const Card = (props) => {
               <p>Citation :{profs.citation}</p>
               <p>Tarif :{profs.honoraire}</p>
               
-=======
-      {prof.map((profs) => (
-        <div className="card" style={{ width: "18rem" }}>
-          <img src={profs.urlphoto} className="card-img-top" alt="img" />
-          <div className="card-body">
-            <h5 className="card-title  my-4">
-              {profs.nom} {profs.prenom}
-             <p/>
-              {profs.expYear}
->>>>>>> fa3b4469fbbfd4258db588cb0712a5c8f5319f67
             </h5>
             <a href="/cour" className="btn btn-dark">
               Plus de Detail
