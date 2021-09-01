@@ -8,7 +8,7 @@ function MenuBar(props) {
     const handleClick=()=>setClicked(!clicked);
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
+            if (window.scrollY > 50) {
                 setShow(true);
             } else {
                 setShow(false);
