@@ -1,24 +1,26 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import "./seach.css";
-import { prof } from "../card-list/prof";
+// import { prof } from "../card-list/prof";
 import Card from "../card-list/Card";
+import {db} from '../../firebaseConfig';
 
-class Searchbar extends React.Component {
-  state = {
-    matiere: "",
-    lieu: "",
-    niveau: "",
-  };
-
-  render() {
-    const { matiere, lieu, niveau } = this.state;
+function Searchbar(){
+  const [state, setState] = useState({
+    matiere : "",
+  });
+  const [prof, setProf] = useState([]);
+  useEffect( ()=> {
+    db.collection('prof').onSnapshot(snapshot =>{
+      // console.log(snapshot.docs.map(doc=> doc.data().libelle));
+      snapshot.docs.map(doc=> setProf({prof : doc.data()}),console.log(prof))
+      
+    })
+  },[]);
+    const { matiere} = state;
     let compte = 0;
-    const filterApp = prof.filter(
+    const filterApp = ()=> prof.filter(
       (pr) =>
-        pr.matirere.toLowerCase().includes(matiere.toLowerCase()) &&
-        pr.lieu.toLowerCase().includes(lieu.toLowerCase()) &&
-        pr.niveau.toLowerCase().includes(niveau.toLowerCase(), compte++)
-    );
+        pr.libelle.includes(matiere.toLowerCase()) , compte++);
     return (
       <div>
         <div className="search-box">
@@ -27,7 +29,7 @@ class Searchbar extends React.Component {
             <input
               type="text"
               placeholder="Matiere"
-              onChange={(e) => this.setState({ matiere: e.target.value })}
+              onChange={(e) => setState({ matiere: e.target.value })}
             ></input>
           </div>
           <div className="search">
@@ -58,6 +60,4 @@ class Searchbar extends React.Component {
       </div>
     );
   }
-}
-
 export default Searchbar;
