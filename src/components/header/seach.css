@@ -98,7 +98,7 @@ span {
    padding:1% 0;
    z-index: 2;
  }
- input{
+ .search input{
   /* margin-bottom: 14px; */
   border-right: none;
  }
