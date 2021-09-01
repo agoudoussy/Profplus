@@ -24,8 +24,7 @@ const Card = (props) => {
               <p>Cours :{profs.libelle}</p>
               <p>Année D'experience {profs.expYear}</p>
               <p>Citation :{profs.citation}</p>
-              <p>Tarif :{profs.honoraire}</p>
-              
+              <p>Tarif :{profs.honoraire}</p>              
             </h5>
             <a href="/cour" className="btn btn-dark">
               Plus de Detail

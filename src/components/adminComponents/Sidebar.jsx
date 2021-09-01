@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 function Sidebar() {
   return (
@@ -12,19 +13,19 @@ function Sidebar() {
         <ul>
         <li>
             <i className="fas fa-tachometer-alt"></i>
-            <a href="/admin">Acceuil</a>
+            <Link to="/admin">Acceuil</Link>
           </li>
           <li>
           <i className="fas fa-chalkboard-teacher"></i>
-            <a href="/admin/prof">Prof</a>
+            <Link to="/admin/prof">Prof</Link>
           </li>
           <li>
              <i className="fas fa-address-book"></i>
-            <a href="/admin/cour">Cour</a>
+            <Link to="/admin/cour">Cour</Link>
           </li>
           <li>
              <i className="fas fa-award"></i>
-            <a href="/admin/categorie">Categorie</a>
+            <Link to="/admin/categorie">Categorie</Link>
           </li>
         </ul>
       </div>

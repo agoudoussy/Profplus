@@ -1,6 +1,6 @@
 import React from "react";
 
-function categorie() {
+function Categorie() {
   return (
     <div>
       <h1>Categorie</h1>
@@ -8,4 +8,4 @@ function categorie() {
   );
 }
 
-export default categorie;
+export default Categorie;

@@ -17,7 +17,7 @@ function SearchBar() {
           <input placeholder="Niveau" />
         </div>
         <a href="/search">
-        Rechercher
+          Rechercher
         </a>
       </div>
     );
