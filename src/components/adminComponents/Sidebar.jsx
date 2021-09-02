@@ -21,7 +21,7 @@ function Sidebar() {
           </li>
           <li>
              <i className="fas fa-address-book"></i>
-            <Link to="/admin/cour">Cour</Link>
+            <Link to="/admin/cour">Cours</Link>
           </li>
           <li>
              <i className="fas fa-award"></i>
