@@ -3,19 +3,9 @@ import "../header/seach.css";
 import { db } from "../../firebaseConfig";
 
 const Card = (props) => {
-  const [prof, setProf] = useState([]);
-
-  useEffect( ()=> {
-    db.collection('prof').onSnapshot(snapshot =>{
-      console.log(snapshot.docs.map(doc=> doc.data().nom));
-      setProf(snapshot.docs.map(doc=> doc.data()))
-    })
-  },[]);
- 
-
   return (
     <div className="container">
-      {prof.map((profs,i) => (
+      {props.prof.map((profs,i) => (
         <div className="card" style={{ width: "18rem" }} key={i}>
           <img src={profs.urlPhoto} className="card-img-top" alt="img" />
           <div className="card-body">

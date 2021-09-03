@@ -5,31 +5,53 @@ import Card from "../card-list/Card";
 import {db} from '../../firebaseConfig';
 
 function Searchbar(){
-  const [state, setState] = useState({
+  const [pro, setPro] = useState({
     matiere : "",
   });
   const [prof, setProf] = useState([]);
-  useEffect( ()=> {
-    db.collection('prof').onSnapshot(snapshot =>{
-      // console.log(snapshot.docs.map(doc=> doc.data().libelle));
-      snapshot.docs.map(doc=> setProf({prof : doc.data()}),console.log(prof))
-      
-    })
-  },[]);
-    const { matiere} = state;
-    let compte = 0;
-    const filterApp = ()=> prof.filter(
-      (pr) =>
-        pr.libelle.includes(matiere.toLowerCase()) , compte++);
+  const ref = db.collection("prof");
+  function getProf() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setProf(items);
+    });
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPro((prevProf) => {
+      return {
+        ...prevProf,
+        [name]: value,
+      };
+    });
+  };
+
+  useEffect(() => {
+    getProf();
+    console.log(prof);
+    console.log(pro.matiere);
+    // eslint-disable-next-line
+  }, []);
+  let compte = 0;
+    const {matiere} = pro;
+    const filterAp = prof.filter(
+      pr =>  (pr.matiere.includes(matiere)),compte++)
+        
     return (
       <div>
         <div className="search-box">
           <div className="search">
             <i className="fas fa-book"></i>
             <input
+              name="matiere"
+              value={pro.matiere}
               type="text"
               placeholder="Matiere"
-              onChange={(e) => setState({ matiere: e.target.value })}
+              onChange={handleChange} 
             ></input>
           </div>
           <div className="search">
@@ -55,7 +77,7 @@ function Searchbar(){
           <p className="person">
             {compte} Personnes <span>Trouvées</span>
           </p>
-          <Card profs={filterApp} />
+            <Card prof={filterAp} />
         </div>
       </div>
     );
