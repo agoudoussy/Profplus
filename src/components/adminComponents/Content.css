@@ -90,6 +90,7 @@ label[name=file-choosen]{
     border:1px solid #0000003b;
     border-radius:5px;
     transition:all 0.25s ease-in ;
+    colro:#0000;
 }
 .inputSize input:focus{
     border: 1px solid rgb(46, 179, 231);
@@ -97,8 +98,9 @@ label[name=file-choosen]{
      box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
     
 }
+
 .inputSize input,select::placeholder{
-    color:rgba(128, 128, 128, 0.555);
+    color:rgba(12, 12, 12, 0.89);
 }
 
 .text__area{
@@ -117,4 +119,8 @@ label[name=file-choosen]{
     border: 1px solid rgb(46, 179, 231);
     -webkit-box-shadow: -1px 0px 1px 5px rgba(57,208,155,0.55); 
      box-shadow: -1px 0px 1px 2.5px rgba(57,208,155,0.55);
+}
+.progress{
+    background-color: rgba(18, 219, 152, 0.952);
+    border-radius: 50px;
 }

@@ -16,7 +16,7 @@ function Content() {
     tel: "",
     email: "",
     urlPhoto: "",
-    Commune: "",
+    commune: "",
     quartier: "",
     matiere: "",
     niveau: "",
@@ -37,8 +37,10 @@ function Content() {
       tel: prof.tel,
       email: prof.email,
       urlPhoto: url,
-      categorie: prof.categorie,
-      libelle: prof.libelle,
+      commune: prof.commune,
+      quartier: prof.quartier,
+      matiere: prof.matiere,
+      niveau: prof.niveau,
       presentation: prof.presentation,
       expPro: prof.expPro,
       expSoc: prof.expSoc,
@@ -52,8 +54,10 @@ function Content() {
       tel: "",
       email: "",
       urlPhoto: "",
-      categorie: "",
-      libelle: "",
+      commune: "",
+      quartier: "",
+      matiere: "",
+      niveau: "",
       presentation: "",
       expPro: "",
       expSoc: "",
@@ -61,6 +65,7 @@ function Content() {
       honoraire: "",
       expYear: "",
     });
+    setUrl("");
   };
 
   //fonction qui reagit au changement de l'input
@@ -108,14 +113,13 @@ function Content() {
       setFile(selectedFile);
       setError("");
       uploadAction(selectedFile);
+      console.log(progress);
     } else {
       setFile("");
       setError("format non supporter");
     }
   };
-  const handleDrop = (event) => {
-    console.log(event.target.name);
-  };
+
   return (
     <div className="admin-content">
       <AdminHead />
@@ -159,7 +163,7 @@ function Content() {
                   value={prof.email}
                   onChange={handleChange}
                   placeholder="email"
-                  type="text"
+                  type="email"
                 />
               </div>
             </div>
@@ -167,13 +171,15 @@ function Content() {
               <input
                 name="urlPhoto"
                 onChange={handleUpload}
+                value={prof.urlPhoto}
                 type="file"
                 id="input-file"
               />
               <label for="input-file">
                 <i></i>Choisir une Image
               </label>
-              <label name="file-choosen">{file ? file.name : "..."}</label>
+              <label name="file-choosen">{file ? url : "..."}</label>
+              {file && <div className="progress" style={{width:progress + '%'}}></div>}
             </div>
           </div>
           <div className="residence_info">
@@ -182,8 +188,10 @@ function Content() {
               <select
                 className="drop-down"
                 name="commune"
-                onChange={handleDrop}
+                onChange={handleChange}
+                value={prof.commune}
               >
+                <option value="Dixinn">Veuillez Choisir votre commune</option>
                 <option value="Dixinn">Dixinn</option>
                 <option value="Kaloum">Kaloum</option>
                 <option value="Matam">Matam</option>
@@ -195,7 +203,7 @@ function Content() {
             <div className="inputSize">
               <input
                 name="quartier"
-                value={prof.libelle}
+                value={prof.quartier}
                 onChange={handleChange}
                 placeholder="Quartier"
                 type="text"
@@ -205,13 +213,15 @@ function Content() {
           <div className="pedagogie-info">
             <h4 className="title_brand">Information Pédagogique</h4>
             <div className="inputSize">
-              <select className="drop-down" onChange={handleDrop}>
+              <select className="drop-down" name="matiere" value={prof.matiere} onChange={handleChange}>
+              <option value="Dixinn">Veuillez Choisir le cour</option>
                 <option value="Html/css">Html/css</option>
                 <option value="Html/css">HTMl/css</option>
               </select>
             </div>
             <div className="inputSize">
-              <select className="drop-down" onChange={handleDrop}>
+              <select className="drop-down" name="niveau" value={prof.niveau} onChange={handleChange}>
+              <option value="Dixinn">Veuillez Choisir le Niveau</option>
                 <option value="Primaire">Primaire</option>
                 <option value="Collège">Collège</option>
                 <option value="Lycée">Lycée</option>
