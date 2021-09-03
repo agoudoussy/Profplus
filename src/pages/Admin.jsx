@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Sidebar from "../components/adminComponents/Sidebar";
 import Content from "../components/adminComponents/Content";
 import "./Admin.css";
-import Profs from "../components/adminComponents/Profs";
 import home from "../components/adminComponents/home";
 import Cour from "../components/adminComponents/Cour";
 import Categorie from "../components/adminComponents/Categorie";

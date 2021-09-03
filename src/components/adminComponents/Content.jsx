@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminHead from "./AdminHead";
 import "./Content.css";
 import { db, storage } from "../../firebaseConfig";
@@ -10,14 +10,17 @@ function Content() {
   const types = ["image/jpeg", "image/png"];
   const [url, setUrl] = useState(null);
   const [progress, setProgress] = useState(null);
+  const [cour, setCour] = useState(null);
   const [prof, setProf] = useState({
     nom: "",
     prenom: "",
     tel: "",
     email: "",
     urlPhoto: "",
-    categorie: "",
-    libelle: "",
+    commune: "",
+    quartier: "",
+    matiere: "",
+    niveau: "",
     presentation: "",
     expPro: "",
     expSoc: "",
@@ -25,6 +28,25 @@ function Content() {
     honoraire: "",
     expYear: "",
   });
+  const [cate, setCate] = useState([]);
+
+  const ref = db.collection("cours");
+  function getCours() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data().cour);
+      });
+      setCate(items);
+    });
+  }
+
+  useEffect(() => {
+    getCours();
+    console.log(cate);
+    // eslint-disable-next-line
+  }, []);
+
   //fonction qui ajoute un prof dans la bd firebase
   const addProf = (event) => {
     //supprimer l'action par defaut lors du submit dans le form
@@ -35,8 +57,10 @@ function Content() {
       tel: prof.tel,
       email: prof.email,
       urlPhoto: url,
-      categorie: prof.categorie,
-      libelle: prof.libelle,
+      commune: prof.commune,
+      quartier: prof.quartier,
+      matiere: prof.matiere,
+      niveau: prof.niveau,
       presentation: prof.presentation,
       expPro: prof.expPro,
       expSoc: prof.expSoc,
@@ -50,8 +74,10 @@ function Content() {
       tel: "",
       email: "",
       urlPhoto: "",
-      categorie: "",
-      libelle: "",
+      commune: "",
+      quartier: "",
+      matiere: "",
+      niveau: "",
       presentation: "",
       expPro: "",
       expSoc: "",
@@ -59,6 +85,7 @@ function Content() {
       honoraire: "",
       expYear: "",
     });
+    setUrl("");
   };
 
   //fonction qui reagit au changement de l'input
@@ -106,6 +133,7 @@ function Content() {
       setFile(selectedFile);
       setError("");
       uploadAction(selectedFile);
+      console.log(progress);
     } else {
       setFile("");
       setError("format non supporter");
@@ -155,36 +183,89 @@ function Content() {
                   value={prof.email}
                   onChange={handleChange}
                   placeholder="email"
-                  type="text"
+                  type="email"
                 />
               </div>
             </div>
             <div className="profile">
-              <input name="urlPhoto" onChange={handleUpload} type="file" id="input-file" />
-              <label for="input-file"> <i></i>Choisir une Image</label>
-              <label name="file-choosen">{file? file.name:'...'}</label>
+              <input
+                name="urlPhoto"
+                onChange={handleUpload}
+                value={prof.urlPhoto}
+                type="file"
+                id="input-file"
+              />
+              <label for="input-file">
+                <i></i>Choisir une Image
+              </label>
+              <label name="file-choosen">{file ? url : "..."}</label>
+              {file && (
+                <div
+                  className="progress"
+                  style={{ width: progress + "%" }}
+                ></div>
+              )}
             </div>
           </div>
           <div className="residence_info">
             <h4 className="title_brand">Information Residentielle</h4>
             <div className="inputSize">
-              <input
-                name="categorie"
-                value={prof.categorie}
+              <select
+                className="drop-down"
+                name="commune"
                 onChange={handleChange}
-                placeholder="categorie"
+                value={prof.commune}
+              >
+                <option value="Dixinn">Veuillez Choisir votre commune</option>
+                <option value="Dixinn">Dixinn</option>
+                <option value="Kaloum">Kaloum</option>
+                <option value="Matam">Matam</option>
+                <option value="Matoto">Matoto</option>
+                <option value="Ratoma">Ratoma</option>
+              </select>
+            </div>
+
+            <div className="inputSize">
+              <input
+                name="quartier"
+                value={prof.quartier}
+                onChange={handleChange}
+                placeholder="Quartier"
                 type="text"
               />
             </div>
-           
+          </div>
+          <div className="pedagogie-info">
+            <h4 className="title_brand">Information Pédagogique</h4>
             <div className="inputSize">
-              <input
-                name="libelle"
-                value={prof.libelle}
+              <select
+                className="drop-down"
+                name="matiere"
+                value={prof.matiere}
                 onChange={handleChange}
-                placeholder="libellé"
-                type="text"
-              />
+              >
+                <option value="">--faite votre choix--</option>
+                {cate.map((ca, i) => {
+                  return (
+                    <option key={i} value={ca}>
+                      {ca}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <div className="inputSize">
+              <select
+                className="drop-down"
+                name="niveau"
+                value={prof.niveau}
+                onChange={handleChange}
+              >
+                <option value="Dixinn">Veuillez Choisir le Niveau</option>
+                <option value="Primaire">Primaire</option>
+                <option value="Collège">Collège</option>
+                <option value="Lycée">Lycée</option>
+              </select>
             </div>
           </div>
           <div className="profosional_info">
