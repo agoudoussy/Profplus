@@ -57,8 +57,7 @@ input:focus{
 }
 
 .card {
-  margin-bottom: 30px;
-  
+  margin-bottom: 30px;  
 }
 .card__section p{
   font-family: "Montserrat semiBold";
@@ -66,11 +65,36 @@ input:focus{
   font-weight: normal;
 }
 .card__section p span{
-  color: orange;
+  color: rgb(43, 43, 43);
+  font-size: 15px;
+  font-family: "poppins";
+  margin-left: 2%;
 }
 
 .contain {
   margin-bottom: 50px;
+}
+.card-body{
+  text-align: left;
+}
+.card-body h4{
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+.card-body>p{
+  font-size: 15px;
+  text-align: left;
+  color:rgb(34, 34, 34);
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.card-body h4{
+  color: rgb(20, 75, 114);
+  font-size: 20px;
+}
+.card-body span{
+  font-family: "poppins";
+  color: rgb(29, 29, 29);
 }
 span {
   color: #f38c26e1;
