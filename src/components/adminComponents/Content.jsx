@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminHead from "./AdminHead";
 import "./Content.css";
 import { db, storage } from "../../firebaseConfig";
@@ -10,6 +10,7 @@ function Content() {
   const types = ["image/jpeg", "image/png"];
   const [url, setUrl] = useState(null);
   const [progress, setProgress] = useState(null);
+  const [cour, setCour] = useState(null);
   const [prof, setProf] = useState({
     nom: "",
     prenom: "",
@@ -27,6 +28,25 @@ function Content() {
     honoraire: "",
     expYear: "",
   });
+  const [cate, setCate] = useState([]);
+
+  const ref = db.collection("cours");
+  function getCours() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data().cour);
+      });
+      setCate(items);
+    });
+  }
+
+  useEffect(() => {
+    getCours();
+    console.log(cate);
+    // eslint-disable-next-line
+  }, []);
+
   //fonction qui ajoute un prof dans la bd firebase
   const addProf = (event) => {
     //supprimer l'action par defaut lors du submit dans le form
@@ -179,7 +199,12 @@ function Content() {
                 <i></i>Choisir une Image
               </label>
               <label name="file-choosen">{file ? url : "..."}</label>
-              {file && <div className="progress" style={{width:progress + '%'}}></div>}
+              {file && (
+                <div
+                  className="progress"
+                  style={{ width: progress + "%" }}
+                ></div>
+              )}
             </div>
           </div>
           <div className="residence_info">
@@ -213,15 +238,30 @@ function Content() {
           <div className="pedagogie-info">
             <h4 className="title_brand">Information Pédagogique</h4>
             <div className="inputSize">
-              <select className="drop-down" name="matiere" value={prof.matiere} onChange={handleChange}>
-              <option value="Dixinn">Veuillez Choisir le cour</option>
-                <option value="Html/css">Html/css</option>
-                <option value="Html/css">HTMl/css</option>
+              <select
+                className="drop-down"
+                name="matiere"
+                value={prof.matiere}
+                onChange={handleChange}
+              >
+                <option value="">--faite votre choix--</option>
+                {cate.map((ca, i) => {
+                  return (
+                    <option key={i} value={ca}>
+                      {ca}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className="inputSize">
-              <select className="drop-down" name="niveau" value={prof.niveau} onChange={handleChange}>
-              <option value="Dixinn">Veuillez Choisir le Niveau</option>
+              <select
+                className="drop-down"
+                name="niveau"
+                value={prof.niveau}
+                onChange={handleChange}
+              >
+                <option value="Dixinn">Veuillez Choisir le Niveau</option>
                 <option value="Primaire">Primaire</option>
                 <option value="Collège">Collège</option>
                 <option value="Lycée">Lycée</option>
