@@ -16,9 +16,7 @@ function SearchBar() {
           <i className="fas fa-graduation-cap "></i>
           <input placeholder="Niveau" />
         </div>
-        <a href="/search">
-          Rechercher
-        </a>
+        <a href="/search">Rechercher</a>
       </div>
     );
 }

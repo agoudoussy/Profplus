@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './PlaceSection.css';
 
 function PlaceSection() {
+    const [commune, setCommune]=useState(['DIXINN','KALOUM','MATAM','MATOTO','RATOMA']);
     return (
         <div className="place__section">
             <div className="place__left__side">
@@ -10,11 +11,11 @@ function PlaceSection() {
                     cinq (5) communes de la capitales</p>
             </div>
             <div className="place__right__side">
-                <a href="">DIXINN</a>
-                <a href="">KALOUM</a>
-                <a href="">MATAM</a>
-                <a href="">MATOTO</a>
-                <a href="">RATOMA</a>
+                {
+                    commune.map(com=>(
+                        <a href={`/search/:${com.toLowerCase()}`}>{com}</a>
+                    ))
+                }
             </div>
         </div>
     )

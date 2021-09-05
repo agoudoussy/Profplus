@@ -5,7 +5,7 @@ import Content from "../components/adminComponents/Content";
 import "./Admin.css";
 import home from "../components/adminComponents/home";
 import Cour from "../components/adminComponents/Cour";
-import Categorie from "../components/adminComponents/Categorie";
+import Categorie from "../components/adminComponents/categorie";
 function Admin() {
   return (
     <Router>

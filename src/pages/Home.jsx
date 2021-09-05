@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router'
 import AboutSection from '../components/AboutSection'
 import CourSection from '../components/CourSection'
 import Footer from '../components/Footer'
@@ -15,7 +16,7 @@ function Home() {
             <AboutSection />
             <ValorSection />
             <CourSection/>
-            <PlaceSection />
+            <PlaceSection url={useParams()} />
             <Footer/>
         </div>
     )

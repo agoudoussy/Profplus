@@ -5,7 +5,7 @@ import ProfDetails from "./pages/ProfDetail";
 import SearchPage from "./pages/SearchPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Admin from './pages/Admin';
-function App() {
+function App(props) {
   return (
     <Router>
       <div className="App">        
@@ -14,6 +14,7 @@ function App() {
           <Route path="/cour" exact component={ProfDetails} />
           <Route path="/search" exact component={SearchPage} />
           <Route path="/admin" exact component={Admin}/>
+          <Route path={`/search/:${props.url}`} exact component={SearchPage}/>
         </Switch>
       </div>
     </Router>

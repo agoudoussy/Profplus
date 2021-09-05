@@ -3,13 +3,26 @@ import "./seach.css";
 // import { prof } from "../card-list/prof";
 import Card from "../card-list/Card";
 import {db} from '../../firebaseConfig';
+import { useParams } from "react-router";
 
-function Searchbar(){
-  const [pro, setPro] = useState({
-    matiere : "",
-  });
+function Searchbar(props){
   const [prof, setProf] = useState([]);
   const ref = db.collection("prof");
+
+  // recupere la valeur retourner par le useparams
+  let {undefined}=props.matiere;
+  const  [location,setLocation]=useState(undefined.slice(1,undefined.length));
+   useEffect(() => {
+    getProf();
+    // {location && setLocation(undefined.slice(1,location.length))}
+    console.log(prof);
+    console.log(pro.matiere);
+    // eslint-disable-next-line
+  }, []);
+  const [pro, setPro] = useState({
+    matiere :"",
+    lieu:location,
+  });
   function getProf() {
     ref.onSnapshot((querySnapshot) => {
       const items = [];
@@ -28,14 +41,9 @@ function Searchbar(){
         [name]: value,
       };
     });
+    console.log(undefined)
   };
 
-  useEffect(() => {
-    getProf();
-    console.log(prof);
-    console.log(pro.matiere);
-    // eslint-disable-next-line
-  }, []);
   let compte = 0;
     const {matiere} = pro;
     const filterAp = prof.filter(
@@ -60,6 +68,7 @@ function Searchbar(){
               type="text"
               placeholder="Lieu"
               onChange={(e) => this.setState({ lieu: e.target.value })}
+              value={pro.lieu}
             ></input>
           </div>
           <div className="search">
