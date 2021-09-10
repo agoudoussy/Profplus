@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 
 function SearchBar() {
     return (
@@ -16,7 +16,7 @@ function SearchBar() {
           <i className="fas fa-graduation-cap "></i>
           <input placeholder="Niveau" />
         </div>
-        <a href="/search">Rechercher</a>
+        <Link to="/search">Rechercher</Link>
       </div>
     );
 }

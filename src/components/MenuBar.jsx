@@ -16,7 +16,7 @@ function MenuBar(props) {
             console.log(show);
         })
         return () => {
-            window.removeEventListener("scroll");
+            window.removeEventListener("scroll",null);
         };
     }, []);
     return (

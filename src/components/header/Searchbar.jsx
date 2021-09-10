@@ -6,89 +6,127 @@ import {db} from '../../firebaseConfig';
 import { useParams } from "react-router";
 
 function Searchbar(props){
+  /* State declarations part */
   const [prof, setProf] = useState([]);
   const ref = db.collection("prof");
-
-  // recupere la valeur retourner par le useparams
-  let {undefined}=props.matiere;
-  const  [location,setLocation]=useState(undefined.slice(1,undefined.length));
-   useEffect(() => {
-    getProf();
-    // {location && setLocation(undefined.slice(1,location.length))}
-    console.log(prof);
-    console.log(pro.matiere);
-    // eslint-disable-next-line
-  }, []);
+  const items = [];
+  const item = [];
+  let { undefined } = props.matiere;
   const [pro, setPro] = useState({
-    matiere :"",
-    lieu:location,
+    matiere: "",
+    lieu: "",
+    isfilter: false,
   });
+  const [location, setLocation] = useState(undefined);
+
+  /* State declarations part */
+  useEffect(() => {
+    {
+      location ? getProfFilter() : getProf();
+    }
+  }, []);
+  //recuperer all prof information
   function getProf() {
     ref.onSnapshot((querySnapshot) => {
-      const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
       setProf(items);
     });
   }
-
+  //Filtre des professeurs par commune
+  function getProfFilter() {
+    ref
+      .where("commune", "==", `${location.slice(1, location.length)}`)
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          item.push(doc.data());
+        });
+        setProf(item);
+      });
+  }
+  //remove commune filter fonction
+  const removeFilter=()=>{
+    console.log("got clicked");
+  }
+  //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
     const { name, value } = event.target;
     setPro((prevProf) => {
       return {
         ...prevProf,
         [name]: value,
+        isfilter: true,
       };
     });
-    console.log(undefined)
   };
 
   let compte = 0;
-    const {matiere} = pro;
-    const filterAp = prof.filter(
-      pr =>  (pr.matiere.includes(matiere)),compte++)
-        
-    return (
-      <div>
-        <div className="search-box">
-          <div className="search">
-            <i className="fas fa-book"></i>
-            <input
-              name="matiere"
-              value={pro.matiere}
-              type="text"
-              placeholder="Matiere"
-              onChange={handleChange} 
-            ></input>
-          </div>
-          <div className="search">
-            <i className="fas fa-map-marker-alt"></i>
-            <input
-              type="text"
-              placeholder="Lieu"
-              onChange={(e) => this.setState({ lieu: e.target.value })}
-              value={pro.lieu}
-            ></input>
-          </div>
-          <div className="search">
-            <i className="fas fa-graduation-cap"></i>
-            <input
-              type="text"
-              placeholder="niveau"
-              onChange={(e) => this.setState({ niveau: e.target.value })}
-            ></input>
-          </div>
-          <button>Rechercher</button>
+  const { matiere } = pro;
+  const filterAp = prof.filter((pr) => pr.matiere.includes(matiere), compte++);
+
+  /* SearchBar Componenets part */
+  return (
+    <div>
+      <div className="search-box">
+        <div className="search">
+          <i className="fas fa-book"></i>
+          <input
+            name="matiere"
+            value={pro.matiere}
+            type="text"
+            placeholder="Matiere"
+            onChange={handleChange}
+          ></input>
         </div>
-        <div className="barreV"></div>
-        <div className="card__section">
-          <p className="person">
-            {compte} Personnes <span>Trouvées</span>
-          </p>
+        <div className="search">
+          <i className="fas fa-map-marker-alt"></i>
+          <input
+            name="lieu"
+            type="text"
+            placeholder="Lieu"
+            onChange={handleChange}
+            value={pro.lieu}
+          ></input>
+        </div>
+        <div className="search">
+          <i className="fas fa-graduation-cap"></i>
+          <input
+            name="niveau"
+            type="text"
+            placeholder="niveau"
+            onChange={handleChange}
+          ></input>
+        </div>
+        <button>Rechercher</button>
+      </div>
+      <div className="barreV"></div>
+      <div className="card__section">
+        <p className="person">
+          {compte} Personnes <span>Trouvées</span>
+        </p>
+        <div className="filterAdd">
+          {location && (
+            <span>
+              {location && location.slice(1, location.length)}
+              <i onClick={removeFilter}  className="fas fa-times"></i>
+            </span>
+          )}
+        </div>
+        <div className="loading">
+          <i 
+            className={`fas fa-circle-notch fa-2x loading__circle__active ${
+              prof.length != 0 ? " loading__circle" : " "
+            }`}
+          ></i>
+          {pro.isfilter && prof.length != 0 ? (
             <Card prof={filterAp} />
+          ) : (
+            <Card prof={prof} />
+          )}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 export default Searchbar;

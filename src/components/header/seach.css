@@ -150,3 +150,47 @@ span {
     border-right: none;
    } 
 } */
+
+.loading__circle{
+  display: none;
+}
+
+.loading__circle__active{
+  color:rgb(8, 129, 185);
+  animation: rotate 2s linear infinite ;
+}
+
+@keyframes rotate{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+
+}
+.filterAdd>span{
+  background-color: rgba(255, 255, 255, 0.918);
+  padding: 3px 9px;
+  border-radius: 50px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #034f6d;
+  border:1px solid #066692;
+  
+}
+.filterAdd {
+  text-align: left;
+  margin-left:10%;
+}
+
+.filterAdd span i{
+  margin-left: 2px;
+  font-size: 15px;
+  transition: all 0.25s ease-in;
+}
+.filterAdd span i:hover{
+  color:#a52a2a;
+  cursor: pointer;
+}
