@@ -8,22 +8,31 @@ import { useParams } from "react-router";
 function Searchbar(props){
   /* State declarations part */
   const [prof, setProf] = useState([]);
+  const readValue = ()=>{
+    const data = localStorage.getItem('research');
+    if(data) {
+      setPro(JSON.parse(data));
+    }
+    else {
+      console.log("vide");
+    }
+  }
   const ref = db.collection("prof");
   const items = [];
   const item = [];
   let { undefined } = props.matiere;
   const [pro, setPro] = useState({
-    matiere: "",
+    mat : "",
     lieu: "",
+    niveau : "",
     isfilter: false,
   });
   const [location, setLocation] = useState(undefined);
 
   /* State declarations part */
   useEffect(() => {
-    {
       location ? getProfFilter() : getProf();
-    }
+      readValue();
   }, []);
   //recuperer all prof information
   function getProf() {
@@ -72,8 +81,8 @@ function Searchbar(props){
         <div className="search">
           <i className="fas fa-book"></i>
           <input
-            name="matiere"
-            value={pro.matiere}
+            name="mat"
+            value={pro.mat}
             type="text"
             placeholder="Matiere"
             onChange={handleChange}
@@ -96,6 +105,7 @@ function Searchbar(props){
             type="text"
             placeholder="niveau"
             onChange={handleChange}
+            value={pro.niveau}
           ></input>
         </div>
         <button>Rechercher</button>
