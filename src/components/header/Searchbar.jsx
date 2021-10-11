@@ -24,7 +24,7 @@ function Searchbar(props){
   const [pro, setPro] = useState({
     mat : "",
     lieu: "",
-    niveau : "",
+    niv : "",
     isfilter: false,
   });
   const [location, setLocation] = useState(undefined);
@@ -70,10 +70,10 @@ function Searchbar(props){
     });
   };
 
-  let compte = 0;
-  const { mat,lieu,niveau } = pro;
-  const filterAp = prof.filter((pr) => (pr.matiere.includes(mat)) & (pr.commune.includes(lieu)) & (pr.niveau.includes(niveau), compte++));
+  const { mat,lieu,niv } = pro;
+  const filterAp = prof.filter((pr) => (pr.matiere.includes(mat)) & (pr.commune.includes(lieu)) & (pr.niveau.includes(niv)));
 
+  let compte = filterAp.length;
   /* SearchBar Componenets part */
   return (
     <div>
@@ -126,10 +126,10 @@ function Searchbar(props){
         <div className="loading">
           <i 
             className={`fas fa-circle-notch fa-2x loading__circle__active ${
-              prof.length != 0 ? " loading__circle" : " "
+              prof.length !== 0 ? " loading__circle" : " "
             }`}
           ></i>
-          {pro.isfilter && prof.length != 0 ? (
+          {pro.isfilter && prof.length !== 0 ? (
             <Card prof={filterAp} />
           ) : (
             <Card prof={prof} />

@@ -7,7 +7,7 @@ function SearchBar() {
     {
       mat : "",
       lieu: "",
-      niveau : "",
+      niv : "",
     }
   );
 
@@ -33,7 +33,7 @@ function SearchBar() {
           <i className="fas fa-graduation-cap "></i>
           <input placeholder="Niveau" onChange={e=> setsearch({
             ...searche,
-            niveau : e.target.value,
+            niv : e.target.value,
           })} />
         </div>
         <Link to="/search">Rechercher</Link>
