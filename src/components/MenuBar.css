@@ -10,6 +10,7 @@ header{
     transition: all 0.3s ease-in;
     height: 60px;
     /* background-color: #ffff; */
+    z-index: 10;
 
 }
 .head__bg__show{

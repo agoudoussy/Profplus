@@ -71,6 +71,9 @@ background-blend-mode: overlay;
       margin-right: 2%;
       height: 35px;
   }
+  .no__border{
+    border-right: none;
+  }
   .center__content .search__bar .inputBar input{
     outline:none;
   }

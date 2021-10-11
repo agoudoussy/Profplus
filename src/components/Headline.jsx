@@ -3,7 +3,8 @@ import React from 'react'
 function Headline(props) {
     return (
         <div>
-             <h5>{props.fElement} <span>{props.sElement}</span></h5>
+             <h3 style={{color:"#00000 !important"}}>{props.fElement} {props.sElement}</h3>
+             
         </div>
     )
 }

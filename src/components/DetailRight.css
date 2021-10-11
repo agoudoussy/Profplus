@@ -26,3 +26,26 @@
     text-align: center;
     margin:2% 0;
 }
+/*Mobile*/
+@media screen and (max-width:768px){
+    .detail__right{
+        width: 100%;
+    }
+    .detail__right .presentation{
+        margin-top: 10px;
+    }
+    .detail__right .presentation::after{
+        display: inline-block;
+        content: "";
+        border-bottom: 1px solid rgb(230, 230, 230);
+        width: 100%;
+    }
+    .youtube_embeded{
+        width: 450px;
+        height: 225px;
+    }
+}
+/*Tablette*/
+@media screen and (min-width:768px) and (max-width:900px) {
+   
+}

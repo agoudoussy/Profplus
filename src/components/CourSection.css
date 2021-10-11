@@ -10,6 +10,7 @@
     font-weight: 500;
     color: #0e0e0e;
     font-size: 1.rem;
+    padding:2%;
 }
 .cour__section__card{
     display: flex;
@@ -26,6 +27,13 @@
 @media screen and (max-width:768px)  {
     .cour__section__card{
        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width:768px) and (max-width:968px){
+    .cour__section__card{
+        display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
     }
 }
 

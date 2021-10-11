@@ -3,7 +3,7 @@
    text-align: left;
 }
 .top{
-    background-color: #ffff;
+    background-color: rgba(245, 244, 244, 0.973) ;
     padding:5%;
     border-radius: 5px;
     margin-bottom: 3%;
@@ -17,7 +17,7 @@
     opacity: 0.3;
 }
 .bottom{
-    background-color: #ffff;
+    background-color: rgba(245, 244, 244, 0.973);
     padding:5%;
     border-radius: 5px;
 }
@@ -38,4 +38,24 @@
 }
  .libelle i{
     margin-right: 10px;
+}
+
+/*Mobile*/
+@media screen and (max-width:768px){
+    .detail__left{
+        width: 100%;
+    }
+    .top,.bottom{
+        background-color: rgb(250, 247, 241);
+    }
+    .top hr, .bottom hr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+/*Tablette*/
+@media screen and (min-width:768px) and (max-width:900px) {
+    .libelle {
+        width: 100%;
+    }
 }

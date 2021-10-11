@@ -7,7 +7,7 @@ function CourSection() {
         <div className="cour__section" id="cours_section">
             <div className="cour__section__head">
                 <i className="fas fa-layer-group  fa-2x"></i>
-                <h1 className="headline">Nos professeurs vous enseigne...</h1>
+                <h2 className="headline">Nos professeurs vous enseigne...</h2>
             </div>
             <div className="cour__section__card">
             <CourseCard title="Art" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>

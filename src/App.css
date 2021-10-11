@@ -11,12 +11,17 @@ p{
   height: 40vmin;
   pointer-events: none;
 }
+h3{
+  font-weight: 600;
+  color:#1b1c29;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;

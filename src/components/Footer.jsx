@@ -5,7 +5,12 @@ function Footer() {
     return (
         <div>
             <footer>
-                <p>Copyright@2021 <span> A.solidaire-DevSolution</span></p>
+                <div className="social_media">
+                    <i className="fab fa-facebook"></i>
+                    <i className="fab fa-twitter"></i>
+                    <i className="fab fa-youtube"></i>
+                </div>
+                <p>Copyright@2021<span>Atelier solidaire-DevSolution</span></p>
             </footer>
         </div>
     )

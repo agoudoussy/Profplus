@@ -45,6 +45,7 @@ function DetailRight() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="Embedded youtube"
+          className="youtube_embeded"
         />
      </div>
     </div>

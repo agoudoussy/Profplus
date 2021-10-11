@@ -1,0 +1,57 @@
+.page-not-found {
+  background-color: rgb(250, 248, 227);
+}
+.page-not-found-center__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+.page-not-found-center__content h5 {
+  color: #132c33;
+  font-size: 32px;
+  margin: 10px;
+}
+.page-not-found-center__content i {
+  margin-bottom: 2px;
+  color: #524b2a;
+}
+.page-not-found-center__content a {
+  width: 100%;
+  text-decoration: none;
+}
+.page-not-found-center__content span {
+  color: #2a4652;
+  font-size: 15px;
+  margin-top: 5%;
+  padding: 0.5%;
+  background-color: rgb(241, 234, 214);
+  border-radius: 50px;
+  transition: all 0.25s ease-in;
+}
+.page-not-found-center__content span:hover{
+    background-color: #ffa500;
+    color:#ffff;
+}
+
+
+@media screen and (max-width: 768px) {
+  .page-not-found-center__content {
+    padding-bottom: 100%;
+    padding-top: 100%;
+  }
+  .page-not-found-center__content span{
+      padding:2%;
+      border-radius: 20px;
+  }
+  .page-not-found-center__content h5{
+      font-size:1.5rem;
+      margin:3%;
+  }
+  .page-not-found-center__content h1{
+      margin-bottom: 0;
+  }
+}

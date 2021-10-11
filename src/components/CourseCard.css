@@ -56,4 +56,7 @@
     .cours_card .list{
         text-align: center;
     }
+    .cours_card{
+        width: 90%;
+    }
 }
