@@ -71,8 +71,8 @@ function Searchbar(props){
   };
 
   let compte = 0;
-  const { matiere } = pro;
-  const filterAp = prof.filter((pr) => pr.matiere.includes(matiere), compte++);
+  const { mat,lieu,niveau } = pro;
+  const filterAp = prof.filter((pr) => (pr.matiere.includes(mat)) & (pr.commune.includes(lieu)) & (pr.niveau.includes(niveau), compte++));
 
   /* SearchBar Componenets part */
   return (
