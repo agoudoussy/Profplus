@@ -8,6 +8,7 @@ function SearchBar() {
       mat : "",
       lieu: "",
       niv : "",
+      isfilter: true,
     }
   );
 
@@ -19,6 +20,7 @@ function SearchBar() {
         <div className="inputBar ">
           <i className="fas fa-book "></i>
           <input placeholder="Matière" onChange={e=> setsearch({
+              ...searche,
               mat : e.target.value,
           })} />
         </div>

@@ -82,7 +82,7 @@ function Searchbar(props){
           <i className="fas fa-book"></i>
           <input
             name="mat"
-            value={pro.mat}
+            value={mat}
             type="text"
             placeholder="Matiere"
             onChange={handleChange}
@@ -95,17 +95,17 @@ function Searchbar(props){
             type="text"
             placeholder="Lieu"
             onChange={handleChange}
-            value={pro.lieu}
+            value={lieu}
           ></input>
         </div>
         <div className="search">
           <i className="fas fa-graduation-cap"></i>
           <input
-            name="niveau"
+            name="niv"
             type="text"
             placeholder="niveau"
             onChange={handleChange}
-            value={pro.niveau}
+            value={niv}
           ></input>
         </div>
         <button>Rechercher</button>
