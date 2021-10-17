@@ -1,6 +1,6 @@
 import React from "react";
 import './DetailLeft.css'
-function DetailLeft() {
+function DetailLeft({info}) {
   return (
     <div className="detail__left">
       <div className="top">
@@ -8,7 +8,7 @@ function DetailLeft() {
         <hr />
         <div className="libelle">
           <i className="fa fa-home"></i>
-          <p>Libelle matière</p>
+          <p>{info.matiere}</p>
         </div>
       </div>
       <div className="bottom">
@@ -16,7 +16,7 @@ function DetailLeft() {
         <hr />
         <div className="libelle">
           <i className="fa fa-home"></i>
-          <p>Libelle niveau</p>
+          <p>{info.niveau}</p>
         </div>
       </div>
     </div>
