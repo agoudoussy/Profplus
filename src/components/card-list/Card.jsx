@@ -16,7 +16,7 @@ const Card = (props) => {
             <p>Année D'experience:<span>{profs.expYear}</span> </p>
             <p>Citation :<span>{profs.citation}</span></p>
             <p>Tarif :<span>{profs.honoraire}</span></p>
-            <a href="/cour" className="btn btn-dark">
+            <a href={`/cour/${i}`} className="btn btn-dark">
               Plus de Detail
             </a>
           </div>

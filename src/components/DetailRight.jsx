@@ -1,15 +1,12 @@
 import React from "react";
 import "./DetailRight.css";
-function DetailRight() {
+function DetailRight({info}) {
   return (
     <div className="detail__right">
       <div className="presentation">
         <h3>Qui suis-je</h3>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi
-          recusandae veniam, eveniet dolorem tenetur harum provident voluptatum
-          fugiat reprehenderit alias, pariatur dolorum culpa cupiditate illo!
-          Facere tenetur quo dolore voluptatibus.
+          {info.presentation}
         </p>
       </div>
       <div className="curriculum">
@@ -18,22 +15,13 @@ function DetailRight() {
           <h4>Expériences professionelles</h4>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem voluptatem obcaecati possimus placeat? Architecto
-          voluptas sequi animi, dicta non culpa inventore distinctio
-          consectetur, vitae, optio sint. Vitae voluptates exercitationem totam.
+        {info.expPro}
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem voluptatem obcaecati possimus placeat? Architecto
-          voluptas sequi animi, dicta non culpa inventore distinctio
-          consectetur, vitae, optio sint. Vitae voluptates exercitationem totam.
+          {info.expSoc}
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem voluptatem obcaecati possimus placeat? Architecto
-          voluptas sequi animi, dicta non culpa inventore distinctio
-          consectetur, vitae, optio sint. Vitae voluptates exercitationem totam.
+        {info.expYear}
         </p>
       </div>
      <div className="video">

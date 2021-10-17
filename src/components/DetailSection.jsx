@@ -1,14 +1,14 @@
 import React from 'react'
 import './DetailSection.css'
-function DetailsSection() {
+function DetailsSection({info}) {
     return (
         <div className="details__section">
             <div className="prof__image">
-                <img src="./images/femme.jpg" alt="" />
+                <img src={info.urlPhoto} alt={info.prenom} />
             </div>
             <div className="prof__info">
-                <p>Location</p>
-                <h1>Nom et Prenom</h1>
+                <p></p>
+                <h1>{info.nom} {info.prenom}</h1>
                 <div className="avis__icone">
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>

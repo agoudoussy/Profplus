@@ -12,7 +12,7 @@ function App(props) {
       <div className="App">        
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/cour" exact component={ProfDetails} />
+          <Route path="/cour/:Profilid" component={ProfDetails} />
           <Route path="/search" exact component={SearchPage} />
           <Route path="/admin" exact component={Admin}/>
           <Route path={`/search/:${props.url}`} exact component={SearchPage}/>

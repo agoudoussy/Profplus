@@ -3,11 +3,11 @@ import DetailLeft from './DetailLeft'
 import DetailRight from './DetailRight'
 import './DetailContainer.css'
 
-function DetailContainer() {
+function DetailContainer({info}) {
     return (
         <div className="detail__container">
-            <DetailLeft/>
-            <DetailRight/>
+            <DetailLeft info = {info}/>
+            <DetailRight info = {info}/>
         </div>
     )
 }
