@@ -107,6 +107,9 @@ span {
   width: 70%;
   margin: auto;
 }
+.hide{
+  display: none;
+}
 
 @media (min-width: 280px) and (max-width: 950px){
  .search-box{

@@ -53,14 +53,21 @@ label[name=file-choosen]{
     border-radius: 14px;
     width: 13%;
     font-size: 1.2rem;
-    color: #fff;
-    background-color: aqua;
+    color: rgba(4, 65, 65, 0.788);
     margin-left: 5%;
     margin-bottom: 10px;
+    border:1px solid rgba(4, 65, 65, 0.788);
+    background: none;
+    transition: all 0.25s ease-in;
+}
+.botumValidate:hover{
+    background-color: rgba(4, 65, 65, 0.788);
+    border:none;
+    color:#ffff;
 }
 
 .profosional_info{
-    border: 1px solid #c0c0c0a4;
+    border: 1px solid #ffd000a4;
     border-radius: 6px;
     margin-top: 15px;
 
@@ -69,7 +76,7 @@ label[name=file-choosen]{
 .residence_info{
     border: 1px solid #c0c0c0a4;
     border-radius: 6px;
-    margin-top: 15px;
+    margin: 2%;
 }
 
 .title_brand{

@@ -20,19 +20,19 @@ function Searchbar(props){
   const ref = db.collection("prof");
   const items = [];
   const item = [];
+  const [isFilter, setIsFilter] = useState(true);
   let { undefined } = props.matiere;
   const [pro, setPro] = useState({
-    mat : "",
+    mat: "",
     lieu: "",
-    niv : "",
-    isfilter: false,
+    niv: "",
   });
   const [location, setLocation] = useState(undefined);
 
   /* State declarations part */
   useEffect(() => {
-      location ? getProfFilter() : getProf();
-      readValue();
+    location ? getProfFilter() : getProf();
+    readValue();
   }, []);
   //recuperer all prof information
   function getProf() {
@@ -55,9 +55,10 @@ function Searchbar(props){
       });
   }
   //remove commune filter fonction
-  const removeFilter=()=>{
-    console.log("got clicked");
-  }
+  // const removeFilter=()=>{
+  //   getProf
+  //   // setIsFilter(false)
+  // }
   //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -65,13 +66,20 @@ function Searchbar(props){
       return {
         ...prevProf,
         [name]: value,
-        isfilter: true,
       };
     });
+    setIsFilter(true);
   };
-
-  const { mat,lieu,niv } = pro;
-  const filterAp = prof.filter((pr) => (pr.matiere.includes(mat)) & (pr.commune.includes(lieu)) & (pr.niveau.includes(niv)));
+  const removeFilter= ()=>{
+    console.log("hide");
+  }
+  const { mat, lieu, niv } = pro;
+  const filterAp = prof.filter(
+    (pr) =>
+      pr.matiere.includes(mat) &
+      pr.commune.includes(lieu) &
+      pr.niveau.includes(niv)
+  );
 
   let compte = filterAp.length;
   /* SearchBar Componenets part */
@@ -117,19 +125,19 @@ function Searchbar(props){
         </p>
         <div className="filterAdd">
           {location && (
-            <span>
+            <span >
               {location && location.slice(1, location.length)}
-              <i onClick={removeFilter}  className="fas fa-times"></i>
+              <i onClick={removeFilter} className="fas fa-times"></i>
             </span>
           )}
         </div>
         <div className="loading">
-          <i 
+          <i
             className={`fas fa-circle-notch fa-2x loading__circle__active ${
               prof.length !== 0 ? " loading__circle" : " "
             }`}
           ></i>
-          {pro.isfilter && prof.length !== 0 ? (
+          {isFilter && prof.length !== 0 ? (
             <Card prof={filterAp} />
           ) : (
             <Card prof={prof} />

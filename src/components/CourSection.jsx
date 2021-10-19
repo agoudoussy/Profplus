@@ -1,8 +1,26 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import CourseCard from './CourseCard'
 import './CourSection.css'
+import {db} from '../firebaseConfig';
+
 
 function CourSection() {
+    const ref=db.collection("cours");
+    const items=[];
+    const [cour , setCour]=useState([]);
+    useEffect(() => { 
+        getCour();
+    }, [])
+
+    function getCour(){
+        ref.onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+             items.push(doc.data());
+            });
+            setCour(items);
+            console.log(cour)
+        })
+    }
     return (
         <div className="cour__section" id="cours_section">
             <div className="cour__section__head">
@@ -10,15 +28,9 @@ function CourSection() {
                 <h2 className="headline">Nos professeurs vous enseigne...</h2>
             </div>
             <div className="cour__section__card">
-            <CourseCard title="Art" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>
-            <CourseCard title="Sport" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>
-            <CourseCard title="Technologie" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>
-            <CourseCard title="Soutien Scolaire" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>
-            <CourseCard title="Technologie" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>
-            <CourseCard title="Soutien Scolaire" fCouse="Maths" sCourse="Bioglogie" tCourse="Chimie" foCourse="Anglais"/>
+           <CourseCard courData={cour}  />
             </div>
         </div>
     )
 }
-
-export default CourSection
+export default CourSection;

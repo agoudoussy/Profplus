@@ -6,18 +6,18 @@ function Cour() {
     cour: "",
     categorie: "",
   });
-  const [cate, setCate] = useState([]);
+  const [cate, setCat] = useState([]);
+  const found=cate.some(elem=>elem.categorie==cours.categorie);
   const addCours = (event) => {
     //supprimer l'action par defaut lors du submit dans le form
     event.preventDefault();
-    db.collection("cours").add({
-      cour: cours.cour,
-      categorie: cours.categorie,
-    });
-    setCours({
-      cour: "",
-      categorie: "",
-    });
+    console.log(found);
+    if(found){
+      console.log("mettre a jour la categorie de ce cours");
+    }else{
+      console.log("ajout d'une nouvel categorie");
+    }
+    console.log(cours.cour);
   };
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,6 +28,7 @@ function Cour() {
       };
     });
   };
+
   const ref = db.collection("categorie");
   function getCategorie() {
     ref.onSnapshot((querySnapshot) => {
@@ -35,13 +36,24 @@ function Cour() {
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
-      setCate(items);
+      setCat(items);
+    });
+  }
+
+  function getCour() {
+    db.collection("cours").onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setCours(items);
     });
   }
 
   useEffect(() => {
     getCategorie();
-    console.log(cate);
+    getCour();
+    // console.log(cate);
     // eslint-disable-next-line
   }, []);
   return (

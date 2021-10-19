@@ -13,9 +13,9 @@
     padding:2%;
 }
 .cour__section__card{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(6,5fr);
+    justify-items: center;
     /* overflow-y: hidden;
     overflow-x: scroll; */
 }

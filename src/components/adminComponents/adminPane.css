@@ -13,3 +13,6 @@
     display: flex;
     justify-content: space-around;
 }
+.errorMsg{
+    margin-bottom: 0;
+}
