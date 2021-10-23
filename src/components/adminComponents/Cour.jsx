@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./adminPane.css";
 import { db, storage } from "../../firebaseConfig";
 function Cour() {
@@ -6,19 +6,44 @@ function Cour() {
     cour: "",
     categorie: "",
   });
+  const [dbCour, setDbCour] = useState([]);
   const [cate, setCat] = useState([]);
-  const found=cate.some(elem=>elem.categorie==cours.categorie);
+  const [docId, setDocId] = useState();
+  const [newCourItems, setNewCourItems]=useState();
+  let courItems;
+  const courRef = useRef();
+  let courList;
   const addCours = (event) => {
+    const items=[]
     //supprimer l'action par defaut lors du submit dans le form
     event.preventDefault();
-    console.log(found);
-    if(found){
-      console.log("mettre a jour la categorie de ce cours");
+    const catFound=dbCour.some(elem=>elem.categorie==cours.categorie);
+    if(catFound){
+      courItems=dbCour.filter(elem=> elem.categorie == cours.categorie).map(elem=>elem.cour);
+      courItems.map(elem=> elem.forEach(element=> items.push(element)));
+      const courFound=items.some(elem=>elem==cours.cour);
+      // console.log(items)
+      if( courFound){
+        console.log("ce cours existe deja dans cette categorie"+cours.categorie);
+        setNewCourItems(items);
+        console.log(items);
+      }else{
+        getCategorieId();
+        items.push(cours.cour)
+        db.collection("cours").doc(docId).update({
+           cour:items
+        })
+        setCours({
+          cour: "",
+          categorie: "",
+        }); 
+       console.log("ajouter ce cours"+ docId);
+      }
     }else{
-      console.log("ajout d'une nouvel categorie");
+      console.log("categorie non trouver");
     }
-    console.log(cours.cour);
   };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setCours((prevProf) => {
@@ -27,6 +52,7 @@ function Cour() {
         [name]: value,
       };
     });
+    getCategorieId();
   };
 
   const ref = db.collection("categorie");
@@ -40,25 +66,35 @@ function Cour() {
     });
   }
 
-  function getCour() {
+  function getCours() {
     db.collection("cours").onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
-      setCours(items);
+      setDbCour(items);
     });
+  }
+
+  function getCategorieId() {
+    db.collection("cours")
+      .where("categorie", "==", cours.categorie)
+      .get()
+      .then((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          setDocId(doc.id);
+        });
+      });
   }
 
   useEffect(() => {
     getCategorie();
-    getCour();
-    // console.log(cate);
-    // eslint-disable-next-line
+    getCours();
   }, []);
   return (
     <div className="completeCate">
-      <form>
+      <form onSubmit={addCours}>
         <div className="residence_info">
           <h4 className="title_brand">
             Enregistrement des informations de Cours
@@ -71,15 +107,18 @@ function Cour() {
               id="categorie-select"
               value={cours.categorie}
               onChange={handleChange}
+              ref={courRef}
+              required
             >
-            <option value="">--faite votre choix--</option>
-            {cate.map((ca,i)=>
-              {
-                return <option key={i} value={ca.categorie}>{ca.categorie}</option>
-              }
-            )}
+              <option value="">--faite votre choix--</option>
+              {cate.map((ca, i) => {
+                return (
+                  <option key={i} value={ca.categorie}>
+                    {ca.categorie}
+                  </option>
+                );
+              })}
             </select>
-            
           </div>
           <div className="inputSize">
             <input
@@ -88,9 +127,10 @@ function Cour() {
               type="text"
               value={cours.cour}
               onChange={handleChange}
+              required
             />
           </div>
-          <button type="submit" className="botumValidate" onClick={addCours}>
+          <button type="submit" className="botumValidate">
             Enregistrer
           </button>
         </div>

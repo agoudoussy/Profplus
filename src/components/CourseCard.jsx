@@ -10,7 +10,8 @@ function CourseCard(props) {
                     <div className="cours_card">
             <h3>{item.categorie}</h3>
                 <ul className="list">
-                    <li><a href="/">{item.cour}</a></li>
+                    {item.cour.map(elem=><li><a href="/">{elem}</a></li>)}
+                    
                 </ul>
         </div>
                 )
