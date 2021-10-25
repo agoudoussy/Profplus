@@ -14,8 +14,8 @@ function Cour() {
   let courItems;
   const courRef = useRef();
   let courList;
+  const items = [];
   const addCours = (event) => {
-    const items = [];
     //supprimer l'action par defaut lors du submit dans le form
     event.preventDefault();
     const catFound = dbCour.some((elem) => elem.categorie == cours.categorie);
@@ -100,8 +100,9 @@ function Cour() {
       });
   }
   function insertCours(){
+    items.push(cours.cour)
     db.collection("cours").add({
-      cour: cours.cour,
+      cour: items,
       categorie: cours.categorie
     });
     setCours({
