@@ -18,13 +18,13 @@ function Cour() {
   const addCours = (event) => {
     //supprimer l'action par defaut lors du submit dans le form
     event.preventDefault();
-    const catFound = dbCour.some((elem) => elem.categorie == cours.categorie);
+    const catFound = dbCour.some((elem) => elem.categorie === cours.categorie);
     if (catFound) {
       courItems = dbCour
-        .filter((elem) => elem.categorie == cours.categorie)
+        .filter((elem) => elem.categorie === cours.categorie)
         .map((elem) => elem.cour);
       courItems.map((elem) => elem.forEach((element) => items.push(element)));
-      const courFound = items.some((elem) => elem == cours.cour);
+      const courFound = items.some((elem) => elem === cours.cour);
       // console.log(items)
       if (courFound) {
         setNewCourItems(items);
