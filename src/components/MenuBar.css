@@ -55,7 +55,7 @@ header p{
 
 .link {
     text-decoration: none;
-    color:#202020;
+    color:#000000;
     font-size: calc(10px + 1vmin);
     font-family: "Montserrat";
     transition: all 0.2s ease-in;   

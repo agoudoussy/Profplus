@@ -9,38 +9,50 @@ function Cour() {
   const [dbCour, setDbCour] = useState([]);
   const [cate, setCat] = useState([]);
   const [docId, setDocId] = useState();
-  const [newCourItems, setNewCourItems]=useState();
+  const [newCourItems, setNewCourItems] = useState();
+  const [errorMsg, setErrorMsg]=useState("");
   let courItems;
   const courRef = useRef();
   let courList;
+  const items = [];
   const addCours = (event) => {
-    const items=[]
     //supprimer l'action par defaut lors du submit dans le form
     event.preventDefault();
-    const catFound=dbCour.some(elem=>elem.categorie===cours.categorie);
-    if(catFound){
-      courItems=dbCour.filter(elem=> elem.categorie === cours.categorie).map(elem=>elem.cour);
-      courItems.map(elem=> elem.forEach(element=> items.push(element)));
-      const courFound=items.some(elem=>elem===cours.cour);
+    const catFound = dbCour.some((elem) => elem.categorie === cours.categorie);
+    if (catFound) {
+      courItems = dbCour
+        .filter((elem) => elem.categorie === cours.categorie)
+        .map((elem) => elem.cour);
+      courItems.map((elem) => elem.forEach((element) => items.push(element)));
+      const courFound = items.some((elem) => elem === cours.cour);
       // console.log(items)
-      if( courFound){
-        console.log("ce cours existe deja dans cette categorie"+cours.categorie);
+      if (courFound) {
         setNewCourItems(items);
         console.log(items);
-      }else{
+        setCours({
+          cour:cours.cour,
+          categorie:cours.categorie,
+        });
+        setErrorMsg(
+          "Cours existant  deja dans la categorie "+cours.categorie 
+        );
+      } else {
         getCategorieId();
-        items.push(cours.cour)
+        items.push(cours.cour);
         db.collection("cours").doc(docId).update({
-           cour:items
-        })
+          cour: items,
+        });
         setCours({
           cour: "",
           categorie: "",
-        }); 
-       console.log("ajouter ce cours"+ docId);
+        });
+        
+        // console.log("ajouter ce cours" + docId);
+        setErrorMsg("Enregistreement effectué avec succès");
       }
-    }else{
-      console.log("categorie non trouver");
+    } else {
+      insertCours();
+      setErrorMsg("Enregistrement effectué avec succès");
     }
   };
 
@@ -87,6 +99,17 @@ function Cour() {
         });
       });
   }
+  function insertCours(){
+    items.push(cours.cour)
+    db.collection("cours").add({
+      cour: items,
+      categorie: cours.categorie
+    });
+    setCours({
+      cour: "",
+      categorie: "",
+    });  
+  }
 
   useEffect(() => {
     getCategorie();
@@ -130,6 +153,7 @@ function Cour() {
               required
             />
           </div>
+          <p>{setErrorMsg}</p>
           <button type="submit" className="botumValidate">
             Enregistrer
           </button>

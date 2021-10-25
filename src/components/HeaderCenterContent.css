@@ -1,5 +1,5 @@
 .center__content {
-  background-color: #00000026;
+  background-color: #000000bb;
 min-height: 100vh;
 display: flex;
 flex-direction: column;
@@ -21,7 +21,7 @@ background-blend-mode: overlay;
   }
   .center__content::after{
     content: "";
-    background-image: url('../images/Photographie.JPG');
+    background-image: url('../images/enfant.jpeg');
     background-size: cover;
     position: absolute;
     top: 0px;
