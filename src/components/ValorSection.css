@@ -8,6 +8,11 @@ h5{font-weight: none;}
 
 @media screen and (min-width:768px) and (max-width:900px) {
     .valor__section{
-        margin: 3%;
+        margin: 5% !important;
+    }
+}
+@media screen and (max-width:768px) {
+    .valor__section{
+        margin: 10% 0;
     }
 }

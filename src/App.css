@@ -5,6 +5,7 @@
 p{
   font-family: "poppins";
   color:#505050;
+  margin-bottom: 0 !important;
 }
 
 .App-logo {
@@ -12,8 +13,13 @@ p{
   pointer-events: none;
 }
 h3{
-  font-weight: 600;
-  color:#1b1c29;
+  font-weight: bold !important;
+  color:#282829;
+  font-size: 22px !important;
+
+}
+h6{
+  font-size: 1rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {

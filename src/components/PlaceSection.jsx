@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { Link } from 'react-router-dom';
 import './PlaceSection.css';
 
 function PlaceSection() {
@@ -21,8 +22,8 @@ function PlaceSection() {
           </p>
         </div>
         <div className="place__right__side">
-          {commune.map((com) => (
-            <a href={`/search/:${com}`}>{com}</a>
+          {commune.map((com,index) => (
+            <Link to={`/search/:${com}`} key={index}>{com}</Link>
           ))}
         </div>
       </div>

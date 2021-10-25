@@ -22,14 +22,14 @@ function MenuBar(props) {
     return (
         <div className="nav__bar">
             <header className={`${show && "head__bg__show"}`}>
-                <a href="/">                    
+                <Link to="/">                    
                     <p className="logo"><span>PROF</span>PLUS</p>
-                </a>
+                </Link>
                 <div className={`nav__link ${show && "head__link_color"} ${clicked ? "active": ""}`}>
                     <ul>
-                        <li><a className={`link ${show && "head__link_color"}`} href="/#cours_section">Cours +</a></li>
-                        <li><a className={`link ${show && "head__link_color"}`} href="/#abouts_section">Savoir +</a></li>
-                        <li><a className={`link ${show && "head__link_color"}`} href="/">Comptence +</a></li>
+                        <li><Link className={`link ${show && "head__link_color"}`} to="/#cours_section">Cours +</Link></li>
+                        <li><Link className={`link ${show && "head__link_color"}`} to="/#abouts_section">Savoir +</Link></li>
+                        <li><Link className={`link ${show && "head__link_color"}`} to="/">Comptence +</Link></li>
                     </ul>
                 </div>
                 <div className="toogle__icone" onClick={handleClick}>
