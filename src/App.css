@@ -14,12 +14,13 @@ p{
 }
 h3{
   font-weight: bold !important;
-  color:#282829;
+  color:#014d5e;
   font-size: 22px !important;
 
 }
 h6{
   font-size: 1rem;
+  color: #014d5e;
 }
 
 @media (prefers-reduced-motion: no-preference) {

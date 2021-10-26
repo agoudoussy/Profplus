@@ -28,9 +28,13 @@ header p{
     font-size: 1.5rem;
     margin-bottom: 0;
 }
+.logo{
+    width: 10%;
+}
 .nav__bar header > a{
     text-decoration: none;
     color: #f7a000;
+    text-align: left;
 }
 .nav__bar header > a > p > span{
     font-family: 'Montserrat';
@@ -46,9 +50,6 @@ header p{
     margin-bottom: 0;
 }
 
-.nav__link ul::after{
-    
-}
 .nav__link ul li{
     list-style: none;
     box-sizing: border-box;
@@ -57,14 +58,13 @@ header p{
 
 .link {
     text-decoration: none;
-    color:#000000;
+    color:#ffa500;
     font-size: calc(10px + 1vmin);
     font-family: "Montserrat";
     transition: all 0.2s ease-in;   
+    font-weight: 400;
 }
-.link:hover{
-    color:#ffa500;
-}
+
 .head__link_color{
     color:#202020;
 }
@@ -77,9 +77,12 @@ header p{
 /*Mobile*/
 @media screen and (max-width:768px){
     header{
+        padding: 4%;
         background-color: #ffff;
     }
-    
+    .logo{
+        width: 30%;
+    }
     .nav__link {
         display: flex;
         flex-direction: column;
@@ -136,7 +139,9 @@ header p{
     header{
         background-color: #ffff;
     }
-    
+    .logo{
+        width: 20%;
+    }
     .nav__link {
         display: flex;
         flex-direction: column;
