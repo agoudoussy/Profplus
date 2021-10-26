@@ -22,6 +22,11 @@
     font-size: 16px;
 }
 .place__left__side h3{
+<<<<<<< HEAD
+=======
+    font-weight: 700 ;
+    font-size: 30px;
+>>>>>>> df84fc51d19af8a3f192d26aa80c2d13ca7e4f40
     margin-top:0;
     margin-bottom: 0;
 }
@@ -31,13 +36,13 @@
 .place__right__side a{
    padding:10px;
    text-decoration: none;
-   font-family: "Montserrat Black";
    color: rgb(51, 51, 51);
    border:1px solid #c4c4c4;
    width: 100%;
    margin-bottom: 3%;
    border-radius: 5px;
    transition: all 0.2s ease-in;
+   font-weight: bold;
 }
 .place__right__side a:hover{
     background-color: #ffa500;

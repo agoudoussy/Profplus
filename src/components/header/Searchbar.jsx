@@ -57,7 +57,10 @@ function Searchbar(props) {
   }
   //remove commune filter fonction
   const removeFilter = () => {
-    console.log("got clicked");
+    getProf();
+    setPro({
+      isfilter : false,
+    })
   };
   //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
