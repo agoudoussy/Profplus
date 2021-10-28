@@ -23,7 +23,7 @@ function PlaceSection() {
         </div>
         <div className="place__right__side">
           {commune.map((com,index) => (
-            <Link to={`/search/:${com}`} key={index}>{com}</Link>
+            <Link to={`/:${com}`} key={index}>{com}</Link>
           ))}
         </div>
       </div>

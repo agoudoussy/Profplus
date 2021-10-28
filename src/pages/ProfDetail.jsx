@@ -9,7 +9,6 @@ import {db} from '../firebaseConfig';
 function ProfDetail(props) {
     const [id, setId] = useState([]);
     const ref = db.collection("prof");
-    const [resultId , setResult] = useState({})
     const items = [];
     function getProf(data) {
         ref.onSnapshot((querySnapshot) => {
