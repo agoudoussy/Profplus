@@ -25,7 +25,7 @@ const Card = ({ profs }) => {
             <p>
               Tarif :<span>{profs.honoraire}</span>
             </p>
-            <Link to={`/cour/${i}`} className="btn btn-dark">
+            <Link to={`/search/${i}`} className="btn btn-dark">
               Plus de Detail
             </Link>
           </div>
