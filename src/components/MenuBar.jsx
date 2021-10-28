@@ -23,7 +23,7 @@ function MenuBar(props) {
         <div className="nav__bar">
             <header className={`${show && "head__bg__show"}`}>
                 <Link to="/">                    
-                    <img src="./image/profplus.png" className="logo" alt="" />
+                    <img src="../image/profplus.png" className="logo" alt="" />
                 </Link>
                 <div className={`nav__link ${show && "head__link_color"} ${clicked ? "active": ""}`}>
                     <ul>

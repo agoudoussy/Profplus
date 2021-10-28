@@ -21,7 +21,7 @@ background-blend-mode: overlay;
   }
   .center__content::after{
     content: "";
-    background-image: url('../images/enfant.jpeg');
+    background-image: url('../images/enfant.jpg');
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -29,6 +29,7 @@ background-blend-mode: overlay;
     bottom: 0px;
     left: 0px;
     z-index: -1;
+    background-position: center bottom;
   }
   .center__content p{
       text-align: center;
