@@ -1,7 +1,6 @@
 .about__section{
     position: relative;
-    margin-top: 5%;
-    margin-bottom: 1%;    
+    margin-top: 5%;  
 }
 h5, span{
     font-size: 1.5rem;
@@ -13,16 +12,16 @@ span{
 .about__section  p{
     text-align: center;
     margin: 0 30%;
-    color: #2c2c2c;
+    color: 063843;
     font-size: 1rem;
 }
 .separator{
-    margin:auto;
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
-    border:dotted #b3a98d 6px;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: dotted #b3a98d 6px;
     border-bottom: none;
-    width:1.9%
+    width: 10%;
 }
 /*RESPONSIVE DESIGN*/
 /*Tablette*/
@@ -39,6 +38,9 @@ span{
         font-size: 0.9rem;
     }
     .separator{
-        width: 1.5%;
+        width: 20%;
+    }
+    .about__section{
+        margin-top: 10%;
     }
 }

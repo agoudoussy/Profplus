@@ -6,7 +6,7 @@ import "./ValorSection.css"
 function ValorSection() {
     return (
         <div className="valor__section">
-            <Headline fElement="Nos" sElement="Valeurs..."/>
+            <Headline fElement="Comment ça" sElement="Marche ?"/>
             <ValorCardSection/>
         </div>
     )

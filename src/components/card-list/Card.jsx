@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../header/seach.css";
 import { db } from "../../firebaseConfig";
+import { Link } from "react-router-dom";
 
 const Card = ({ profs }) => {
   return (
@@ -24,9 +25,9 @@ const Card = ({ profs }) => {
             <p>
               Tarif :<span>{profs.honoraire}</span>
             </p>
-            <a href={`/cour/${i}`} className="btn btn-dark">
+            <Link to={`/search/${i}`} className="btn btn-dark">
               Plus de Detail
-            </a>
+            </Link>
           </div>
         </div>
       ))}

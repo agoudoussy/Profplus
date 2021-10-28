@@ -12,10 +12,10 @@ function App(props) {
       <div className="App">        
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/cour/:Profilid" component={ProfDetails} />
+          <Route path="/search/:Profilid" component={ProfDetails} />
           <Route path="/search" exact component={SearchPage} />
           <Route path="/admin" exact component={Admin}/>
-          <Route path={`/search/:${props.url}`} exact component={SearchPage}/>
+          <Route path={`/:${props.url}`}  component={SearchPage}/>
           <Route path="*" exact component={PageNotFound}/>
         </Switch>
       </div>

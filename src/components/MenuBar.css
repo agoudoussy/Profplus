@@ -2,7 +2,6 @@ header{
     position:fixed;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-family: "Montserrat";
     box-sizing: border-box;
     padding:1% 50px;
@@ -11,6 +10,7 @@ header{
     height: 60px;
     /* background-color: #ffff; */
     z-index: 10;
+    align-items: center;
 
 }
 .head__bg__show{
@@ -26,10 +26,15 @@ header p{
     /* text-shadow: rgba(22, 22, 22, 0.385) 1px 1px 5px; */
     color: rgb(255, 153, 0);
     font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.logo{
+    width: 10%;
 }
 .nav__bar header > a{
     text-decoration: none;
     color: #f7a000;
+    text-align: left;
 }
 .nav__bar header > a > p > span{
     font-family: 'Montserrat';
@@ -37,16 +42,14 @@ header p{
     color: #c98303;
 }
 .nav__link {
-    width: 30%;
+    width: 40%;
 }
 .nav__link ul{
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 0;
 }
 
-.nav__link ul::after{
-    
-}
 .nav__link ul li{
     list-style: none;
     box-sizing: border-box;
@@ -55,14 +58,13 @@ header p{
 
 .link {
     text-decoration: none;
-    color:#000000;
+    color:#ffa500;
     font-size: calc(10px + 1vmin);
     font-family: "Montserrat";
     transition: all 0.2s ease-in;   
+    font-weight: 400;
 }
-.link:hover{
-    color:#ffa500;
-}
+
 .head__link_color{
     color:#202020;
 }
@@ -75,9 +77,12 @@ header p{
 /*Mobile*/
 @media screen and (max-width:768px){
     header{
+        padding: 4%;
         background-color: #ffff;
     }
-    
+    .logo{
+        width: 30%;
+    }
     .nav__link {
         display: flex;
         flex-direction: column;
@@ -134,7 +139,9 @@ header p{
     header{
         background-color: #ffff;
     }
-    
+    .logo{
+        width: 20%;
+    }
     .nav__link {
         display: flex;
         flex-direction: column;

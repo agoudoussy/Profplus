@@ -59,7 +59,7 @@ function Searchbar(props) {
   const removeFilter = () => {
     getProf();
     setPro({
-      isfilter : false,
+      isfilter : false
     })
   };
   //detecter le changement des valeurs dans les inputs

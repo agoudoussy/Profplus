@@ -2,13 +2,14 @@
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 200px;
-    height: 250px; 
+    min-width: 12.41vw;
+    min-height: 35.02vh;
     background-color: #ffff;
     border-radius: 15px;
     padding: 0 15px;
     padding-top: 10px ;
     margin-bottom: 3%;
+    margin-left: 1%;
     border: 1px solid rgba(252, 184, 59, 0); 
     transition: all 0.2s ease-in;
 }
@@ -46,17 +47,23 @@
    color: rgb(252, 127, 45);
 }
 /*Tablette*/
-
+@media screen and (min-width:768px) and (max-width:968px){
+    .cours_card{
+        min-width: 35vw;
+        min-height: 35vh;
+    }
+}
 /*Mobile*/
 @media screen and (max-width:368px)  {
+    .cours_card{
+        min-width: 53vw;
+        min-height: 35vh;
+    }
     .cours_card h3{
-       text-align: center;
-       border-bottom: 1px solid rgb(119, 119, 119);
+        font-size: 1rem !important;
        margin-bottom: 10px;
     }
-    .cours_card .list{
-        text-align: center;
-    }
+
     .cours_card{
         width: 90%;
     }
