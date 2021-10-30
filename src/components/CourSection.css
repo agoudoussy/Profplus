@@ -20,15 +20,16 @@
     display: none;
 }
 
-/* RESPONSIVE DESIGN
+
 @media screen and (max-width:768px)  {
     .cour__section__card{
        min-height: 250px;
+       padding: 1%;
     }
 }
 @media screen and (min-width:768px) and (max-width:968px){
     .cour__section__card{
         min-width: 11vw;
     }
-} */
+} 
 
