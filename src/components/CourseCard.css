@@ -51,20 +51,18 @@
     .cours_card{
         min-width: 35vw;
         min-height: 35vh;
+        margin-right: 20px;
     }
 }
 /*Mobile*/
-@media screen and (max-width:368px)  {
+@media screen and (max-width:420px)  {
     .cours_card{
-        min-width: 53vw;
+        min-width: 48vw;
         min-height: 35vh;
+        margin-right: 10px;
     }
     .cours_card h3{
         font-size: 1rem !important;
        margin-bottom: 10px;
-    }
-
-    .cours_card{
-        width: 90%;
     }
 }

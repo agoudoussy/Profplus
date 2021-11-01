@@ -99,9 +99,7 @@ input:focus{
 span {
   color: #f38c26e1;
 }
-.nav-link:hover {
-  color: #f38c26e1 !important;
-}
+
 .barreV {
   border: 1px solid #36363636;
   width: 70%;
