@@ -10,8 +10,8 @@ function ProfDetail(props) {
     const [id, setId] = useState([]);
     const ref = db.collection("prof");
     const items = [];
-    function getProf(data) {
-        ref.onSnapshot((querySnapshot) => {
+    const getProf = async(data)=> {
+       await ref.onSnapshot((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             items.push(doc.data());
           });

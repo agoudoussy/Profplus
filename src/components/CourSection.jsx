@@ -18,7 +18,7 @@ function CourSection() {
              items.push(doc.data());
             });
             setCour(items);
-            console.log(cour)
+            
         })
     }
     return (

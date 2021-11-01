@@ -34,10 +34,11 @@ function Searchbar(props) {
   useEffect(() => {
     location ? getProfFilter() : getProf();
     readValue();
+    removeFilter();
   }, []);
   //recuperer all prof information
-  function getProf() {
-    ref.onSnapshot((querySnapshot) => {
+  const getProf = async ()=> {
+      await ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
@@ -45,8 +46,8 @@ function Searchbar(props) {
     });
   }
   //Filtre des professeurs par commune
-  function getProfFilter() {
-    ref
+  const getProfFilter = async()=> {
+   await ref
       .where("commune", "==", `${location.slice(1, location.length)}`)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -58,9 +59,6 @@ function Searchbar(props) {
   //remove commune filter fonction
   const removeFilter = () => {
     getProf();
-    setPro({
-      isfilter : false
-    })
   };
   //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
