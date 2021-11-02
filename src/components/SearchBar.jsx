@@ -9,6 +9,7 @@ function SearchBar() {
       lieu: "",
       niv : "",
       isfilter: true,
+      isTyping : false,
     }
   );
 
@@ -21,6 +22,7 @@ function SearchBar() {
           <i className="fas fa-book "></i>
           <input placeholder="Matière" onChange={e=> setsearch({
               ...searche,
+              isTyping: true,
               mat : e.target.value,
           })} />
         </div>
@@ -28,6 +30,7 @@ function SearchBar() {
           <i className="fas fa-map-marker-alt "></i>
           <input placeholder="Lieu" onChange={e=> setsearch({
             ...searche,
+            isTyping: true,
             lieu : e.target.value,
           })}/>
         </div>
@@ -35,6 +38,7 @@ function SearchBar() {
           <i className="fas fa-graduation-cap "></i>
           <input placeholder="Niveau" onChange={e=> setsearch({
             ...searche,
+            isTyping: true,
             niv : e.target.value,
           })} />
         </div>

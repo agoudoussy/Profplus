@@ -39,7 +39,7 @@ function Searchbar(props) {
     
   }, []);
   //recuperer all prof information
-  function getProf() {
+  const getProf =()=> {
     ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
@@ -58,14 +58,7 @@ function Searchbar(props) {
         setProf(item);
       });
   }
-  //remove commune filter fonction
-  const removeFilter = () => {
-    setPro({
-      isfilter : false,
-    })
-    getProf();
-    setHideComBtn(true);
-  };
+  
   //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -91,6 +84,12 @@ function Searchbar(props) {
       pr.commune.includes(lieu) &
       pr.niveau.includes(niv)
   );
+
+//remove commune filter fonction
+ const removeFilter = () => {
+    getProf();
+  setHideComBtn(true);
+ };
 
   let compte = filterAp.length;
 
@@ -151,7 +150,7 @@ function Searchbar(props) {
           <div className="loading">
             <i
               className={`fas fa-circle-notch fa-2x loading__circle__active ${
-                displayUsers.length !== 0 ? " loading__circle" : " "
+                displayUsers.length !== 0 ? " loading__circle" : <p>Aucune donnée retournée</p>
               }`}
             ></i>
             {pro.isfilter && prof.length !== 0 ? (
