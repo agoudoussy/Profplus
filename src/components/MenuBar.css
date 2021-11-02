@@ -29,7 +29,7 @@ header p{
     margin-bottom: 0;
 }
 .logo{
-    width: 12%;
+    width: 15%;
 }
 .nav__bar header > a{
     text-decoration: none;
@@ -42,7 +42,7 @@ header p{
     color: #c98303;
 }
 .nav__link {
-    width: 40%;
+    width: 100%;
 }
 .nav__link ul{
     display: flex;

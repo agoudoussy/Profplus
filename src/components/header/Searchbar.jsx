@@ -149,7 +149,7 @@ function Searchbar(props) {
           <div className="loading">
             <i
               className={`fas fa-circle-notch fa-2x loading__circle__active ${
-                displayUsers.length !== 0 ? " loading__circle" : " "
+                displayUsers.length !== 0 ? " loading__circle" : <p>Aucune donnée retournée</p>
               }`}
             ></i>
             {pro.isfilter && prof.length !== 0 ? (
