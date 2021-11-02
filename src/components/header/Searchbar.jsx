@@ -27,6 +27,7 @@ function Searchbar(props) {
     lieu: "",
     niv: "",
     isfilter: false,
+    isTyping : false,
   });
   const [location, setLocation] = useState(undefined);
 
@@ -34,6 +35,7 @@ function Searchbar(props) {
   useEffect(() => {
     location ? getProfFilter() : getProf();
     readValue();
+    
   }, []);
   //recuperer all prof information
   function getProf() {
@@ -57,10 +59,10 @@ function Searchbar(props) {
   }
   //remove commune filter fonction
   const removeFilter = () => {
-    getProf();
     setPro({
-      isfilter : false
+      isfilter : false,
     })
+    getProf();
   };
   //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
@@ -70,6 +72,7 @@ function Searchbar(props) {
         ...prevProf,
         [name]: value,
         isfilter: true,
+        isTyping: true,
       };
     });
   };
@@ -90,6 +93,8 @@ function Searchbar(props) {
   let compte = filterAp.length;
 
   const pageCount = Math.ceil(prof.length / usersPerPage);
+
+  const pageCountfilter = Math.ceil(compte / usersPerPage);
 
   /* SearchBar Componenets part */
   return (
@@ -158,7 +163,7 @@ function Searchbar(props) {
               py={3}
             >
               <Pagination
-                count={pageCount}
+                count={pro.isTyping ? pageCountfilter : pageCount}
                 variant="outlined"
                 shape="rounded"
                 onChange={(e, value) => setPageNumber(value - 1)}
