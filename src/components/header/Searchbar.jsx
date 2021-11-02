@@ -10,6 +10,7 @@ function Searchbar(props) {
   /* State declarations part */
   const [prof, setProf] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [hideComBtn, setHideComBtn]=useState(false);
   const readValue = () => {
     const data = localStorage.getItem("research");
     if (data) {
@@ -63,6 +64,7 @@ function Searchbar(props) {
       isfilter : false,
     })
     getProf();
+    setHideComBtn(true);
   };
   //detecter le changement des valeurs dans les inputs
   const handleChange = (event) => {
@@ -140,7 +142,7 @@ function Searchbar(props) {
           </p>
           <div className="filterAdd">
             {location && (
-              <span>
+              <span style={{display:`${hideComBtn&&"none"}`}}>
                 {location && location.slice(1, location.length)}
                 <i onClick={removeFilter} className="fas fa-times"></i>
               </span>
