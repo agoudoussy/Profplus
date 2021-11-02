@@ -55,7 +55,9 @@ input:focus{
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-
+.hideBtn{
+  display:none;
+}
 .card {
   margin-bottom: 30px;  
 }
