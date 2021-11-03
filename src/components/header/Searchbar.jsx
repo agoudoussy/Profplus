@@ -36,7 +36,6 @@ function Searchbar(props) {
   useEffect(() => {
     location ? getProfFilter() : getProf();
     readValue();
-    
   }, []);
   //recuperer all prof information
   const getProf =()=> {
@@ -87,7 +86,7 @@ function Searchbar(props) {
 
 //remove commune filter fonction
  const removeFilter = () => {
-    getProf();
+   getProf();
   setHideComBtn(true);
  };
 
