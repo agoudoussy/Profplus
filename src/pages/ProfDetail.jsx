@@ -9,20 +9,20 @@ import {db} from '../firebaseConfig';
 function ProfDetail(props) {
     const [id, setId] = useState([]);
     const ref = db.collection("prof");
-    const items = [];
-    function getProfDetail(data) {
-        ref.onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            items.push(doc.data());
-          });
-          setId(items[data]);
+    const getProfDetail = async(data) => {
+      ref
+      .where("email", "==", `${data}`)
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setId(doc.data())
         });
+      });
 
       }
       
 
     useEffect((id)=>{
-        const data = parseInt(props.match.params.Profilid);
+        const data = (props.match.params.Profilid);
         getProfDetail(data);
 
     },[id])
