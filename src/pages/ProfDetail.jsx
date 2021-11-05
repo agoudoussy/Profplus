@@ -22,7 +22,7 @@ function ProfDetail(props) {
 
     useEffect(()=>{
         const data = (props.match.params.Profilid);
-        getProfDetail(data);
+        //getProfDetail(data);
     },[])
     return (
         <div>
