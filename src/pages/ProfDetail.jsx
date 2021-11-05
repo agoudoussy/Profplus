@@ -17,13 +17,13 @@ function ProfDetail(props) {
       }
       
 
-    useEffect((id)=>{
+    useEffect(()=>{
         const data = (props.match.params.Profilid);
         // console.log(id)
         getProfDetail(data);
         
 
-    },[id])
+    })
     return (
         <div>
             <MenuBar />
