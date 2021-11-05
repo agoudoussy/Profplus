@@ -7,23 +7,23 @@ import MenuBar from '../components/MenuBar'
 import {db} from '../firebaseConfig';
 
 function ProfDetail(props) {
-    const [id, setId] = useState([]);
+    const [id, setId] = useState({});
     const ref = db.collection("prof");
     const getProfDetail = async(data) => {
 
       const query = await ref.where('email', '==', `${data}`).get();
-      setId(query.docs[0].data())
+      setId({
+        ...query.docs[0].data()
+      })
+      console.log(query.docs[0].data())
       
       }
       
 
     useEffect(()=>{
         const data = (props.match.params.Profilid);
-        // console.log(id)
         getProfDetail(data);
-        
-
-    })
+    },[])
     return (
         <div>
             <MenuBar />
