@@ -10,20 +10,18 @@ function ProfDetail(props) {
     const [id, setId] = useState([]);
     const ref = db.collection("prof");
     const getProfDetail = async(data) => {
-      ref
-      .where("email", "==", `${data}`)
-      .onSnapshot((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          setId(doc.data())
-        });
-      });
 
+      const query = await ref.where('email', '==', `${data}`).get();
+      setId(query.docs[0].data())
+      
       }
       
 
     useEffect((id)=>{
         const data = (props.match.params.Profilid);
+        // console.log(id)
         getProfDetail(data);
+        
 
     },[id])
     return (
