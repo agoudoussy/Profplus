@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, useEffect } from 'react/cjs/react.development'
+import { useState, useEffect } from 'react'
 import DetailContainer from '../components/DetailContainer'
 import DetailsSection from '../components/DetailSection'
 import Footer from '../components/Footer'
