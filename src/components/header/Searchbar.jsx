@@ -41,8 +41,12 @@ function Searchbar(props) {
   const getProf =()=> {
     ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+        items.push({
+          id : doc.id,
+          ...doc.data()
+        });
       });
+      console.log(items)
       setProf(items);
     });
   }
