@@ -7,7 +7,7 @@ const Card = ({ profs }) => {
   return (
     <div className="container">
       {profs.map((profs, i) => (
-        <div className="card" style={{ width: "18rem" }} key={profs.email}>
+        <div className="card" style={{ width: "18rem" }} key={profs.id}>
           <img src={profs.urlPhoto} className="card-img-top" alt="img" />
           <div className="card-body">
             <h4>
@@ -25,7 +25,7 @@ const Card = ({ profs }) => {
             <p>
               Tarif :<span>{profs.honoraire}</span>
             </p>
-            <Link to={`/search/${profs.email}`} className="btn btn-dark">
+            <Link to={`/search/${profs.id}`} className="btn btn-dark">
               Plus de Detail
             </Link>
           </div>
