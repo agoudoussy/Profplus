@@ -61,7 +61,7 @@ input:focus{
 .card {
   margin-bottom: 30px;  
 }
-.card__section p{
+.card__section .person{
   font-family: "Montserrat semiBold";
   font-size: 1.5rem;
   font-weight: normal;

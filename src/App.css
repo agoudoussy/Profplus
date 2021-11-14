@@ -18,6 +18,10 @@ h3{
   font-size: 28px !important;
 
 }
+hr{
+  margin-top: 0;
+  margin-bottom: 0;
+}
 h6{
   font-size: 1rem;
   color: #014d5e;
