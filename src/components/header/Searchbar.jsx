@@ -38,21 +38,21 @@ function Searchbar(props) {
     readValue();
   }, []);
   //recuperer all prof information
-  const getProf =()=> {
-    ref.onSnapshot((querySnapshot) => {
+  const getProf = async ()=> {
+    await ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         items.push({
           id : doc.id,
           ...doc.data()
         });
       });
-      console.log(items)
+      // console.log(items)
       setProf(items);
     });
   }
   //Filtre des professeurs par commune
-  function getProfFilter() {
-    ref
+  const getProfFilter = async ()=> {
+   await ref
       .where("commune", "==", `${location.slice(1, location.length)}`)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -89,9 +89,9 @@ function Searchbar(props) {
   );
 
 //remove commune filter fonction
- const removeFilter = () => {
-   getProf();
-  setHideComBtn(true);
+ const removeFilter = async () => {
+    await getProf();
+     setHideComBtn(true);
  };
 
   let compte = filterAp.length;
