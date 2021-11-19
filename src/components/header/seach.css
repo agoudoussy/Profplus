@@ -61,7 +61,7 @@ input:focus{
 .card {
   margin-bottom: 30px;  
 }
-.card__section p{
+.card__section .person{
   font-family: "Montserrat semiBold";
   font-size: 1.5rem;
   font-weight: normal;
@@ -116,8 +116,9 @@ span {
    display: flex;
    flex-direction: column;
    align-items: center;
-   padding-top: 15%;
+   padding-top: 21%;
    width: 75%;
+
  }
  .search{
    width: 90%;

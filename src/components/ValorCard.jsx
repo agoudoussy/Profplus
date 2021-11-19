@@ -5,7 +5,7 @@ function ValorCard(props) {
     return (
         <div className="valor__card">
             <div className="icon">
-                <i className="fa fa-address-book fa-lg"></i>
+                <i className={props.icon}></i>
             </div>
             <div className="headline">
                 <h6>{props.headline}</h6>

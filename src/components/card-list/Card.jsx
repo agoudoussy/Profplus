@@ -2,34 +2,34 @@ import { useState, useEffect } from "react";
 import "../header/seach.css";
 import { db } from "../../firebaseConfig";
 import { Link } from "react-router-dom";
-
+import "./Card.css";
 const Card = ({ profs }) => {
   return (
-    <div className="container">
+    <div className="card-container">
       {profs.map((profs, i) => (
-        <div className="card" style={{ width: "18rem" }} key={profs.id}>
-          <img src={profs.urlPhoto} className="card-img-top" alt="img" />
-          <div className="card-body">
-            <h4>
-              {profs.nom} {profs.prenom}
-            </h4>
-            <p>
-              Cours :<span>{profs.matiere}</span>
+      <div className="card-course" key={profs.id}>
+        <div className="card-imge">
+          <img src={profs.urlPhoto} alt="" />
+        </div>
+        <div className="card-bottom">
+          <div className="card-bottom-l1">
+            <p className="matiere">
+              <i className="fas fa-award"></i>
+              {profs.matiere}
             </p>
-            <p>
-              Année D'experience:<span>{profs.expYear}</span>{" "}
+            <p className="exp">Experience:{profs.expYear}</p>
+          </div>
+          <hr />
+          <p className="nom">{profs.nom + " " + profs.prenom}</p>
+          <div className="card-bottom-l3">
+            <p className="honoraire">
+              <i className="fas fa-history"></i>
+              {profs.honoraire}
             </p>
-            <p>
-              Citation :<span>{profs.citation}</span>
-            </p>
-            <p>
-              Tarif :<span>{profs.honoraire}</span>
-            </p>
-            <Link to={`/search/${profs.id}`} className="btn btn-dark">
-              Plus de Detail
-            </Link>
+            <Link to={`/search/${profs.id}`} className="details">voir plus</Link>
           </div>
         </div>
+      </div>
       ))}
     </div>
   );

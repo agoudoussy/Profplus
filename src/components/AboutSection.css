@@ -10,10 +10,10 @@ span{
     color: #e27f14de;
 }
 .about__section  p{
-    text-align: center;
-    margin: 0 30%;
+    text-align: center justify;
+    margin: 1.7% 30%;
     color: 063843;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 .separator{
     margin: auto;
