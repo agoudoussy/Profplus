@@ -166,6 +166,7 @@ function Searchbar(props) {
               component={Box}
               py={3}
             >
+              
               <Pagination
                 count={pro.isTyping ? pageCountfilter : pageCount}
                 variant="outlined"

@@ -57,6 +57,10 @@
     font-family: "poppins";
     font-size: 15px;
     padding: 5px 7px;
+    text-decoration: none;
+}
+.details:hover{
+    color: white;
 }
 .honoraire{
 
@@ -66,4 +70,16 @@
     font-size: 20px;
     text-align: left;
     margin:0.5rem 0;
+}
+
+@media screen and (max-width:768px) {
+    .card-container{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .card-container{
+        grid-template-columns: repeat(2,1fr);
+    }
 }

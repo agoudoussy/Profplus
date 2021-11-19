@@ -26,7 +26,7 @@ const Card = ({ profs }) => {
               <i className="fas fa-history"></i>
               {profs.honoraire}
             </p>
-            <button className="details">voir plus</button>
+            <Link to={`/search/${profs.id}`} className="details">voir plus</Link>
           </div>
         </div>
       </div>
