@@ -56,7 +56,10 @@ function Searchbar(props) {
       .where("commune", "==", `${location.slice(1, location.length)}`)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          item.push(doc.data());
+          item.push({
+            id : doc.id,
+            ...doc.data()
+          });
         });
         setProf(item);
       });
