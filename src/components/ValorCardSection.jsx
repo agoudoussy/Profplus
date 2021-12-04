@@ -5,9 +5,9 @@ import './ValorCardSection.css'
 function ValorCardSection() {
     return (
         <div className="valor__card__section">
-            <ValorCard headline="Rechercher" icon="fa fa-search fa-lg"/>
-            <ValorCard headline="Choisissez" icon="fas fa-chalkboard-teacher fa-lg"/>
-            <ValorCard headline="Contactez nous" icon="fas fa-phone fa-lg"/>
+            <ValorCard headline="Appel à Candidature" icon="1"/>
+            <ValorCard headline="Testés" icon="2"/>
+            <ValorCard headline="Formation" icon="3"/>
         </div>
     )
 }

@@ -3,7 +3,6 @@ import "./seach.css";
 // import { prof } from "../card-list/prof";
 import Card from "../card-list/Card";
 import { db } from "../../firebaseConfig";
-import { useParams } from "react-router";
 import Pagination from "@mui/material/Pagination";
 import { Box, CssBaseline, Container, Typography } from "@mui/material";
 function Searchbar(props) {

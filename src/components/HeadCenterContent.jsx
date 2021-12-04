@@ -1,18 +1,19 @@
-import React from 'react'
-import './HeaderCenterContent.css';
-import SearchBar from './SearchBar';
-
+import React from "react";
+import "./HeaderCenterContent.css";
+import SearchBar from "./SearchBar";
 
 function HeadCenterContent() {
-    return (
-      <div className="center__content">
-        <h1>IL T'ATTEND... TON PROF'</h1>
-        <SearchBar />
-        <div className="contact">
-          <i className="fas fa-headset "></i>
-        </div>
+  return (
+    <div className="center__content">
+      <h1>IL T'ATTEND... TON PROF'</h1>
+      <SearchBar />
+      <div className="contact">
+        <a href="https://wa.me/224623489936?app" style={{ background: "none" }}>
+          <i class="fab fa-whatsapp" style={{color: "#25D366"}}></i>
+        </a>
       </div>
-    );
+    </div>
+  );
 }
 
-export default HeadCenterContent
+export default HeadCenterContent;
