@@ -11,6 +11,12 @@ function HeadCenterContent() {
         <div className="contact">
           <i className="fas fa-headset "></i>
         </div>
+        <div className="center__content_profile">
+            <div className="profile"></div>
+            <div className="profile"></div>
+            <div className="profile"></div>
+            <div className="profile"></div>
+        </div>
       </div>
     );
 }
