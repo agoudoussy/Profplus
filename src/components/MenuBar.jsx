@@ -29,7 +29,6 @@ function MenuBar(props) {
                     <ul>
                         <li><a className={`link ${show && "head__link_color"}`} href="/#cours_section">Cours +</a></li>
                         <li><a className={`link ${show && "head__link_color"}`} href="/#abouts_section">Savoir +</a></li>
-                        <li><a className={`link ${show && "head__link_color"}`} href="/">Comptence +</a></li>
                     </ul>
                 </div>
                 <div className="toogle__icone" onClick={handleClick}>

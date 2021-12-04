@@ -111,7 +111,7 @@ background-blend-mode: overlay;
       text-align: center;
       background-color: #ffff;
       opacity: 0.5;
-      padding: 1.3% 8%;
+      padding: 1% 3%;
       border-radius: 50px;
       margin:2% 0;
       font-size: 30px;
@@ -126,7 +126,7 @@ background-blend-mode: overlay;
     border-radius: 100px;
   }
   .contact:after{
-        content: "+224 621 11 11 11";
+        /* content: "+224 621 11 11 11"; */
         color: black;
         font-family: "Montserrat semiBold";
         opacity: 1;

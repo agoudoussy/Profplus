@@ -3,7 +3,6 @@ import "./seach.css";
 // import { prof } from "../card-list/prof";
 import Card from "../card-list/Card";
 import { db } from "../../firebaseConfig";
-import { useParams } from "react-router";
 import Pagination from "@mui/material/Pagination";
 import { Box, CssBaseline, Container, Typography } from "@mui/material";
 function Searchbar(props) {
@@ -38,25 +37,28 @@ function Searchbar(props) {
     readValue();
   }, []);
   //recuperer all prof information
-  const getProf =()=> {
-    ref.onSnapshot((querySnapshot) => {
+  const getProf = async ()=> {
+    await ref.onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         items.push({
           id : doc.id,
           ...doc.data()
         });
       });
-      console.log(items)
+      // console.log(items)
       setProf(items);
     });
   }
   //Filtre des professeurs par commune
-  function getProfFilter() {
-    ref
+  const getProfFilter = async ()=> {
+   await ref
       .where("commune", "==", `${location.slice(1, location.length)}`)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          item.push(doc.data());
+          item.push({
+            id : doc.id,
+            ...doc.data()
+          });
         });
         setProf(item);
       });
@@ -89,9 +91,9 @@ function Searchbar(props) {
   );
 
 //remove commune filter fonction
- const removeFilter = () => {
-   getProf();
-  setHideComBtn(true);
+ const removeFilter = async () => {
+    await getProf();
+     setHideComBtn(true);
  };
 
   let compte = filterAp.length;
