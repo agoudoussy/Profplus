@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import "./CourSection.css";
 import { db } from "../firebaseConfig";
-import Swiper,{SwiperSlide}from 'swiper/react';
-
+// import Swiper, {SwiperSlide } from 'swiper';
+// // Import Swiper styles
+// import 'swiper/css';
 
 function CourSection() {
   const ref = db.collection("cours");
@@ -29,17 +30,7 @@ function CourSection() {
         <h3 className="headline">Nos professeurs vous enseigne...</h3>
       </div>
       <div className="cour__section__card">
-          <Swiper
-          spaceBetween={50}
-          slidesPerView={5}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
-          >
-            <SwiperSlide>
-            <CourseCard courData={cour} />
-            </SwiperSlide>
-          </Swiper>
-        
+            <CourseCard courData={cour} />  
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ function HeadCenterContent() {
           <i class="fab fa-whatsapp" style={{color: "#25D366"}}></i>
         </a>
       </div>
+      <p>Ces profs sont avec nous...</p>
       <div className="center__content_profile">
             <div className="profile"></div>
             <div className="profile"></div>

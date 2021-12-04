@@ -105,6 +105,12 @@ background-blend-mode: overlay;
   .profile{
 
   }
+  .center__content >p{
+    font-size: 1rem;
+    color: #ffff;
+    margin-bottom: 1.5rem !important;
+    font-family: "poppins Thin";
+  }
   .contact{
       display: flex;
       justify-content: center;
