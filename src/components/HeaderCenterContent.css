@@ -124,6 +124,8 @@ background-blend-mode: overlay;
   }
   .center__content_profile{
     display: flex;
+    justify-content: space-around;
+    width: 70%;
   }
   .profile{
     background-color: rgb(255, 255, 255);
@@ -193,6 +195,9 @@ background-blend-mode: overlay;
    .contact{
     font-size: 20px;
     padding: 3% 0 2% 3%;
+  }
+  .center__content_profile{
+    width: 100%;
   }
    
 }

@@ -26,8 +26,7 @@
     border-radius: 6px;
 }
 .profile{
-    padding: 20px 30px;
-    text-align: left;
+   overflow: hidden;
 }
 .profile input#input-file{
    display: none;
