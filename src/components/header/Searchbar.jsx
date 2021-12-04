@@ -85,9 +85,9 @@ function Searchbar(props) {
   const { mat, lieu, niv } = pro;
   const filterAp = displayUsers.filter(
     (pr) =>
-      pr.matiere.includes(mat) &
-      pr.commune.includes(lieu) &
-      pr.niveau.includes(niv)
+      pr.matiere.toUpperCase().includes(mat.toUpperCase()) &
+      pr.commune.toUpperCase().includes(lieu.toUpperCase()) &
+      pr.niveau.toUpperCase().includes(niv.toUpperCase())
   );
 
 //remove commune filter fonction
