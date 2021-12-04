@@ -14,10 +14,18 @@ function HeadCenterContent() {
       </div>
       <p>Ces profs sont avec nous...</p>
       <div className="center__content_profile">
-            <div className="profile"></div>
-            <div className="profile"></div>
-            <div className="profile"></div>
-            <div className="profile"></div>
+            <div className="profile">
+              <img src="" alt="" />
+            </div>
+            <div className="profile">
+              <img src="" alt="" />
+            </div>
+            <div className="profile">
+              <img src="" alt="" />
+            </div>
+            <div className="profile">
+              <img src="" alt="" />
+            </div>
         </div>
     </div>
   );
